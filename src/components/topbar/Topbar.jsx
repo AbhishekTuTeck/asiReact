@@ -51,7 +51,7 @@ function TopBar() {
              <h5 className="fs-24 fw-bold">ASI</h5>
           </li>
         </ul>
-        <ul class="top-menu">
+        <ul className="top-menu">
           <li>
           <Link to="/nsso-secured/CompileSchedule">
                 <FeatherIcon icon="home" />

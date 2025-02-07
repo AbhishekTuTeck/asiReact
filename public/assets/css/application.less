@@ -1,7 +1,20 @@
 @import url(../css/variable.less);
 
+@import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+body{
+    font-family: "Public Sans", sans-serif !important;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    font-weight: 400 !important;
+    color: @color_4 !important;
+}
+
 a {
     text-decoration: none !important;
+}
+h6 {
+    font-size: 0.875rem !important;
 }
 
 .topbar-custom {
@@ -37,11 +50,10 @@ a {
     }
 
     .profile-dropdown {
-        min-width: 200px;
-
+        padding: 5px;
         .notify-item {
             border-radius: 12px;
-
+            color: @color_4;
             &:hover {
                 color: @baseColor;
                 background: -moz-linear-gradient(52deg, rgba(80, 145, 205, 1) 0%, rgba(39, 58, 151, 1) 100%);
@@ -78,8 +90,10 @@ a {
     }
 }
 
-
-
+.dropdown-menu{
+    inset: 0px 0px auto auto !important;
+    border-color: #dee2e6 !important;
+}
 
 .topnav-menu {
     .dropdown-toggle::after {
@@ -167,17 +181,22 @@ ul.top-menu {
 .card{
     .card-header{
         background: transparent;
+        padding: 16px 16px;
         .card-title {
             font-size: 16px;
             font-weight: 600;
             color: @color_4;
         }
-      }
-  }
+    }
+}
+
+.form-select, .form-control{
+    color: @color_4 !important;
+}
 
 .form-label {
     margin-bottom: .2rem;
-    color: #4a5a6b;
+    color: @color_4;
     font-size: 0.875rem;
     font-weight: 600;
 }
@@ -191,3 +210,8 @@ ul.top-menu {
         margin-right: 5px;
     }
 }
+.pageHeadingTitle{
+    color: #4982C4;
+}
+
+
