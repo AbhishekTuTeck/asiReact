@@ -1,12 +1,15 @@
 @import url(../css/variable.less);
-a{
+
+a {
     text-decoration: none !important;
 }
-.topbar-custom{
-    .topnav-menu{
-        .nav-link.nav-user{
+
+.topbar-custom {
+    .topnav-menu {
+        .nav-link.nav-user {
             text-align: left;
-            .avterLetter{
+
+            .avterLetter {
                 height: 32px;
                 width: 32px;
                 font-size: 13px;
@@ -18,30 +21,36 @@ a{
                 justify-content: center;
                 color: @SiteBlue4;
             }
-            .pro-user-name{
-                h6{
+
+            .pro-user-name {
+                h6 {
                     font-weight: 700;
                     color: @color_3;
                 }
-                p{
+
+                p {
                     font-size: 12px;
                     line-height: 16px;
                 }
             }
         }
     }
-    .profile-dropdown{
+
+    .profile-dropdown {
         min-width: 200px;
-        .notify-item{
+
+        .notify-item {
             border-radius: 12px;
-            &:hover{
+
+            &:hover {
                 color: @baseColor;
-                background: -moz-linear-gradient(52deg, rgba(80,145,205,1) 0%, rgba(39,58,151,1) 100%);
-                background: -webkit-linear-gradient(52deg, rgba(80,145,205,1) 0%, rgba(39,58,151,1) 100%);
-                background: linear-gradient(52deg, rgba(80,145,205,1) 0%, rgba(39,58,151,1) 100%);
+                background: -moz-linear-gradient(52deg, rgba(80, 145, 205, 1) 0%, rgba(39, 58, 151, 1) 100%);
+                background: -webkit-linear-gradient(52deg, rgba(80, 145, 205, 1) 0%, rgba(39, 58, 151, 1) 100%);
+                background: linear-gradient(52deg, rgba(80, 145, 205, 1) 0%, rgba(39, 58, 151, 1) 100%);
             }
         }
-        .avterLetter{
+
+        .avterLetter {
             height: 45px;
             width: 45px;
             font-size: 18px;
@@ -54,12 +63,14 @@ a{
             color: @SiteBlue4;
             margin: 0 auto;
         }
-        .pro-user-name{
-            h6{
+
+        .pro-user-name {
+            h6 {
                 font-weight: 700;
                 color: @color_3;
             }
-            p{
+
+            p {
                 font-size: 12px;
                 line-height: 16px;
             }
@@ -71,35 +82,86 @@ a{
 
 
 .topnav-menu {
-    .dropdown-toggle::after{
+    .dropdown-toggle::after {
         display: none;
     }
 }
+
 /* Add this CSS to your stylesheet */
 
 .collapse-enter {
     max-height: 0;
-  }
-  
-  .collapse-enter-active {
-    max-height: 500px; /* Adjust based on the size of your content */
-    transition: max-height 0.3s ease-in;
-  }
-  
-  .collapse-exit {
+}
+
+.collapse-enter-active {
     max-height: 500px;
-  }
-  
-  .collapse-exit-active {
+    /* Adjust based on the size of your content */
+    transition: max-height 0.3s ease-in;
+}
+
+.collapse-exit {
+    max-height: 500px;
+}
+
+.collapse-exit-active {
     max-height: 0;
     transition: max-height 0.3s ease-out;
-  }
-  
-  .nav-second-level {
+}
+
+.nav-second-level {
     list-style-type: none;
     padding-left: 20px;
-  }
-  
-  .menu-arrow {
+}
+
+.menu-arrow {
     margin-left: 5px;
-  }
+}
+
+
+
+ul.top-menu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    li {
+        list-style-type: none;
+        margin: 0 8px;
+
+        a {
+            border-radius: 25px;
+            background-color: #F8FAFF;
+            padding: 7px 19px;
+            border: 1px solid #B9E0FF;
+            align-items: center;
+            display: flex;
+            color: #4F4F4F;
+            transition: all 0.2s ease;
+            &:hover{
+                background: linear-gradient(52deg, rgba(80,145,205,1) 0%, rgba(39,58,151,1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5091cd",endColorstr="#273a97",GradientType=1);
+                color:@baseColor;
+            }
+            &:focus{
+                color:rgba(39,58,151,1);
+                background-color: #E4ECFF;
+            }
+            &.active{
+                background: linear-gradient(52deg, rgba(80,145,205,1) 0%, rgba(39,58,151,1) 100%);
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#5091cd",endColorstr="#273a97",GradientType=1);
+                color:@baseColor;
+                font-weight: 600;
+            }
+            svg {
+                margin-right: 8px;
+            }
+        }
+    }
+}
+.pe-cursor{
+    cursor: pointer;
+}
+.maintenance-pages{
+    -webkit-backdrop-filter: blur(100px);
+  backdrop-filter: blur(100px);
+}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useNavigate } from "react-router-dom";
 import FeatherIcon from "feather-icons-react";
@@ -18,7 +19,8 @@ function TopBar() {
   };
 
   useEffect(() => {
-    document.body.setAttribute("data-sidebar", isSidebarHidden ? "hidden" : "visible");
+    // document.body.setAttribute("data-sidebar", isSidebarHidden ? "hidden" : "visible"); //Sidebar on
+    document.body.setAttribute("data-sidebar", isSidebarHidden ? "hidden" : "hidden");
   }, [isSidebarHidden]);
 
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -33,32 +35,34 @@ function TopBar() {
     }
   };
 
-  const UserMenu = (
-    <div
-      href="#"
-      className="d-flex align-items-center justify-content-center link-body-emphasis text-decoration-none "
-    >
-      <span className="textAvatar me-2">A</span>
-      <span>
-        <strong className="text-truncate">Abhishek Ghosh</strong>
-        <p className="mb-0 text-grey text-truncate">
-          abhishek.ghosh@tuteck.com
-        </p>
-      </span>
-    </div>
-  );
+
   return (
     <div className="topbar-custom">
     <div className="container-fluid">
       <div className="d-flex justify-content-between">
         <ul className="list-unstyled topnav-menu mb-0 d-flex align-items-center">
-          <li>
+          {/* <li>
             <button className="button-toggle-menu nav-link" onClick={toggleSidebar}>
               <FeatherIcon icon="menu" className="noti-icon" />
             </button>
+          </li> */}
+          <li className="d-flex align-items-center">
+             <img src={sitensso75Logo} alt="Logo" className="border-end pe-4 me-3"/>
+             <h5 className="fs-24 fw-bold">ASI</h5>
           </li>
-          <li className="d-none d-lg-block">
-            <img src={sitensso75Logo} alt="Logo" />
+        </ul>
+        <ul class="top-menu">
+          <li>
+          <Link to="/nsso-secured/CompileSchedule">
+                <FeatherIcon icon="home" />
+                <span>Dashboard</span>
+              </Link>
+          </li>
+          <li>
+          <Link to="/nsso-secured/CompileSchedule" className="active">
+                <FeatherIcon icon="layers" />
+                <span>Compile Schedule</span>
+              </Link>
           </li>
         </ul>
         <ul className="list-unstyled topnav-menu mb-0 d-flex align-items-center">
@@ -74,12 +78,12 @@ function TopBar() {
 
           {/* Notifications */}
           <Dropdown as="li" className="dropdown notification-list topbar-dropdown">
-            <Dropdown.Toggle as="a" className="nav-link dropdown-toggle">
+            <Dropdown.Toggle as="a" className="nav-link dropdown-toggle pe-cursor">
               <FeatherIcon icon="bell" className="noti-icon" />
               <span className="badge bg-danger rounded-circle noti-icon-badge">9</span>
             </Dropdown.Toggle>
             <Dropdown.Menu className="dropdown-lg dropdown-menu dropdown-menu-end dropdown-lg">
-              <Dropdown.Item href="#/action-1">
+              <Dropdown.Item>
                 <div className="notify-icon"></div>
                 <div className="d-flex align-items-center justify-content-between">
                   <p className="notify-details">Carl Steadham</p>
@@ -96,7 +100,7 @@ function TopBar() {
 
           {/* User Dropdown */}
           <Dropdown as="li" className="dropdown notification-list topbar-dropdown">
-            <Dropdown.Toggle as="a" className="nav-link dropdown-toggle nav-user me-0">
+            <Dropdown.Toggle as="a" className="nav-link dropdown-toggle nav-user me-0 pe-cursor">
               <div className="d-flex align-items-center">
                 <div className="avterLetter rounded-circle">AR</div>
                 <div className="pro-user-name ms-2 d-flex align-items-center">
