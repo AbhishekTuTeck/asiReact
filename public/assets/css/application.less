@@ -1,0 +1,105 @@
+@import url(../css/variable.less);
+a{
+    text-decoration: none !important;
+}
+.topbar-custom{
+    .topnav-menu{
+        .nav-link.nav-user{
+            text-align: left;
+            .avterLetter{
+                height: 32px;
+                width: 32px;
+                font-size: 13px;
+                line-height: 17px;
+                font-weight: 600;
+                background-color: @SiteBlue3;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: @SiteBlue4;
+            }
+            .pro-user-name{
+                h6{
+                    font-weight: 700;
+                    color: @color_3;
+                }
+                p{
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+        }
+    }
+    .profile-dropdown{
+        min-width: 200px;
+        .notify-item{
+            border-radius: 12px;
+            &:hover{
+                color: @baseColor;
+                background: -moz-linear-gradient(52deg, rgba(80,145,205,1) 0%, rgba(39,58,151,1) 100%);
+                background: -webkit-linear-gradient(52deg, rgba(80,145,205,1) 0%, rgba(39,58,151,1) 100%);
+                background: linear-gradient(52deg, rgba(80,145,205,1) 0%, rgba(39,58,151,1) 100%);
+            }
+        }
+        .avterLetter{
+            height: 45px;
+            width: 45px;
+            font-size: 18px;
+            line-height: 22px;
+            font-weight: 600;
+            background-color: @SiteBlue3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: @SiteBlue4;
+            margin: 0 auto;
+        }
+        .pro-user-name{
+            h6{
+                font-weight: 700;
+                color: @color_3;
+            }
+            p{
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+    }
+}
+
+
+
+
+.topnav-menu {
+    .dropdown-toggle::after{
+        display: none;
+    }
+}
+/* Add this CSS to your stylesheet */
+
+.collapse-enter {
+    max-height: 0;
+  }
+  
+  .collapse-enter-active {
+    max-height: 500px; /* Adjust based on the size of your content */
+    transition: max-height 0.3s ease-in;
+  }
+  
+  .collapse-exit {
+    max-height: 500px;
+  }
+  
+  .collapse-exit-active {
+    max-height: 0;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .nav-second-level {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+  
+  .menu-arrow {
+    margin-left: 5px;
+  }
