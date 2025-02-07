@@ -29,6 +29,7 @@ function PageNotFound() {
                     src={error}
                     className="img-fluid"
                     alt="coming-soon"
+                    width="80%"
                   />
                 </div>
               </div>
