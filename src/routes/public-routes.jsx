@@ -9,6 +9,7 @@ import Test from '../pages/test/Test';
 import ForgotPassword from '../pages/forgotPassword/ForgotPassword';
 import ResetPassword from '../pages/reset-password/ResetPassword';
 import CompileScheduleList from '../pages/CompileSchedule/CompileScheduleList';
+import CompileScheduleGeneralInfo from '../pages/CompileSchedule/CompileScheduleGeneralInfo';
 
 function PublicRoutes() {
   const router = createBrowserRouter([
@@ -31,8 +32,12 @@ function PublicRoutes() {
       children: [
         { path: 'test', element: <Test /> },
         {
-          path: 'CompileSchedule',
+          path: 'compile-schedule',
           element: <CompileScheduleList />,
+        },
+        {
+          path: 'compile-schedule/compile-schedule-generalinfo',
+          element: <CompileScheduleGeneralInfo />,
         },
       ],
     },

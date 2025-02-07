@@ -13,7 +13,7 @@ export default function Layout(props) {
         <div className="content">
           {/* Start Content*/}
           <div className="container-fluid">
-            <Breadcrumb />
+           
             {props.children}
           </div>
           {/* container-fluid */}

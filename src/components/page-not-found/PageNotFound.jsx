@@ -1,20 +1,44 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
-
+import error from "../../../public/assets/images/svg/404-error.svg";
 function PageNotFound() {
+
+
   return (
-    <Container className='d-flex flex-column justify-content-center align-items-center vh-100'>
-      <Row className='text-center'>
-        <Col>
-          <h1 className='display-1'>404</h1>
-          <p className='lead'>
-            Oops! The page you are looking for does not exist.
-          </p>
-          <Button variant='primary' href='/'>
-            Go Home
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+  
+    <div className="maintenance-pages">
+    <div className="container-fluid p-0">
+      <div className="row">
+        <div className="col-xl-12 align-self-center">
+          <div className="row">
+            <div className="col-md-5 mx-auto">
+              <div className="text-center">
+                <div className="mb-0">
+                  <h3 className="fw-semibold text-dark text-capitalize">
+                    Oops!, Page Not Found
+                  </h3>
+                  <p className="text-dark">
+                    This pages you are trying to access does not exits or has been
+                    moved. <br /> Try going back to our homepage.
+                  </p>
+                </div>
+                <a className="btn btn-primary mt-3 me-1" href="index.html">
+                  Back to Home
+                </a>
+                <div className="error-page mt-4">
+                  <img
+                    src={error}
+                    className="img-fluid"
+                    alt="coming-soon"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
   );
 }
 
