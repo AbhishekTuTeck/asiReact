@@ -4,109 +4,47 @@ import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
-import FeatherIcon from "feather-icons-react";
-import Breadcrumb from "../../components/breadcrumb/Breadcrumb";
 
 export default function CompileScheduleList() {
   return (
-    <>
-    <Breadcrumb title="Compile Schedule" />
-    <Card className='rounded-4'>
-      <Card.Header>
-        <Card.Title className='mb-0'>Filter - Compile Schedule</Card.Title>
-      </Card.Header>
-      <Card.Body>
-        <Row>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label>State <span className='text-danger'>*</span></Form.Label>
-              <Form.Select size="sm">
-                <option>Select</option>
-              </Form.Select>
-            </Form.Group>
-          </Col>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label>District <span className='text-danger'>*</span></Form.Label>
-              <Form.Select size="sm">
-                <option>Select</option>
-              </Form.Select>
-            </Form.Group>
-          </Col>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label>Sector <span className='text-danger'>*</span></Form.Label>
-              <Form.Select size="sm">
-                <option>Select</option>
-              </Form.Select>
-            </Form.Group>
-          </Col>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label>Scheme <span className='text-danger'>*</span></Form.Label>
-              <Form.Select size="sm">
-                <option>Select</option>
-              </Form.Select>
-            </Form.Group>
-          </Col>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label>Survey Year <span className='text-danger'>*</span></Form.Label>
-              <Form.Select size="sm">
-                <option>Select</option>
-              </Form.Select>
-            </Form.Group>
-          </Col>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label>PSL No.</Form.Label>
-              <Form.Select size="sm">
-                <option>Select</option>
-              </Form.Select>
-            </Form.Group>
-          </Col>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label>SRO <span className='text-danger'>*</span></Form.Label>
-              <Form.Select size="sm">
-                <option>Select</option>
-              </Form.Select>
-            </Form.Group>
-          </Col>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label>Status <span className='text-danger'>*</span></Form.Label>
-              <Form.Select size="sm">
-                <option>Select</option>
-              </Form.Select>
-            </Form.Group>
-          </Col>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label>Unit Name</Form.Label>
-              <Form.Select size="sm">
-                <option>Select</option>
-              </Form.Select>
-            </Form.Group>
-          </Col>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label className='w-100'>&nbsp;</Form.Label>
-              <Form.Control size="sm" type="text" placeholder="Enter" />
-            </Form.Group>
-          </Col>
-          <Col md={3}>
-            <Form.Group className="mb-3">
-              <Form.Label className='w-100'>&nbsp;</Form.Label>
-              <Button variant="primary" size="sm" className='d-flex align-items-center'>
-                <FeatherIcon icon="search" /> Search
-              </Button>
-            </Form.Group>
-          </Col>
-        </Row>
-      </Card.Body>
-    </Card> 
- </>
+    <div className="content-page">
+  <div className="content">
+    {/* Start Content*/}
+    <div className="container-fluid">
+      <div className="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
+        <div className="flex-grow-1">
+          <h4 className="fs-18 fw-semibold m-0">Compile Schedule</h4>
+        </div>
+        <div className="text-end">
+          <ol className="breadcrumb m-0 py-0">
+            <li className="breadcrumb-item">
+              <a href="javascript: void(0);">Dashboard</a>
+            </li>
+            <li className="breadcrumb-item">
+              <a href="javascript: void(0);">Schedule Activities</a>
+            </li>
+            <li className="breadcrumb-item active">Compile Schedule</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+    {/* container-fluid */}
+  </div>
+  {/* content */}
+  {/* Footer Start */}
+  <footer className="footer">
+    <div className="container-fluid">
+      <div className="row">
+        <div className="col fs-13 text-muted text-center">
+          Copyright © 2025 , National Statistical Office - Industrial Statistics
+          Wing. All rights reserved. Ministry of Statistics &amp; Programme
+          Implementation.
+        </div>
+      </div>
+    </div>
+  </footer>
+  {/* end Footer */}
+</div>
 
   );
 }
