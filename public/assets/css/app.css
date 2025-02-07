@@ -276,6 +276,9 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+body.login-page{
+  background-image: none;
+}
 .bg-3-container{
   background-image: 
   url('../images/bg4.png');
