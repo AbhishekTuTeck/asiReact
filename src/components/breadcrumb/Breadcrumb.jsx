@@ -7,7 +7,7 @@ function breadcrumb({ title }) {
   return (
     <div className="py-3 d-flex align-items-sm-center flex-sm-row flex-column">
       <div className="flex-grow-1">
-        <h4 className="fs-18 fw-semibold m-0">{title}</h4>
+        <h4 className="fs-18 fw-semibold m-0 pageHeadingTitle">{title}</h4>
       </div>
       <div className="text-end">
         <ol className="breadcrumb m-0 py-0">
