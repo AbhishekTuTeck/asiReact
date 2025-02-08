@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
 import FeatherIcon from "feather-icons-react";  // Import Feather Icons
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
 // Sample Data (Full Data Set)
 const tableData = [
@@ -31,6 +32,11 @@ const getStatusClass = (status) => {
 };
 
 export default function DataTableComponent() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   const [filterText, setFilterText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(5);  // Default 5 items per page
@@ -81,6 +87,7 @@ export default function DataTableComponent() {
   };
 
   return (
+    <>
     <div className=" mt-4">
     
 
@@ -135,6 +142,7 @@ export default function DataTableComponent() {
               />
             </th>
             <th>Status</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -149,6 +157,26 @@ export default function DataTableComponent() {
                 <span className={`badge ${getStatusClass(item.status)}`}>
                   {item.status}
                 </span>
+              </td>
+              <td>
+              {item.status === "Pending" && (
+                <a href="#" className="text-primary me-2">
+                <FeatherIcon icon="file-text" size={18} />
+              </a>
+            )}
+            {item.status === "Rejected" && (
+                  <>
+                    <a href="#" className="text-warning me-2">
+                      <FeatherIcon icon="file-text" size={18} />
+                    </a>
+                    <button
+                      className="btn btn-sm btn-danger"
+                      onClick={handleShow}
+                    >
+                      <FeatherIcon icon="trash" size={16} /> Delete
+                    </button>
+                  </>
+                )}
               </td>
             </tr>
           ))}
@@ -193,5 +221,20 @@ export default function DataTableComponent() {
         </li>
       </ul>
     </div>
+    <Modal show={show} onHide={handleClose} backdrop="static"
+        keyboard={false} aria-labelledby="contained-modal-title-vcenter" centered>
+    <Modal.Header closeButton>
+      <Modal.Title>Delete Modal</Modal.Title>
+    </Modal.Header>
+    <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+    <Modal.Footer>
+      <Button variant="secondary" onClick={handleClose}>
+        Close
+      </Button>
+      <Button variant="primary" onClick={handleClose}>
+        Save Changes
+      </Button>
+    </Modal.Footer>
+  </Modal></>
   );
 }
