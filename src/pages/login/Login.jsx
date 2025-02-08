@@ -4,13 +4,15 @@ import { useNavigate } from 'react-router-dom';
 import Swal from "sweetalert2";
 
 
+
 function LoginForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [captcha, setCaptcha] = useState(generateCaptcha());
   const [captchaInput, setCaptchaInput] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  
+  const navigate = useNavigate();
+
   const staticUsername = "admin";
   const staticPassword = "password123";
 
