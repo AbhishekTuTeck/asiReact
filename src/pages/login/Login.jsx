@@ -1,42 +1,79 @@
-import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { useState } from "react";
 import loginClass from './css/login.module.css';
 import { useNavigate } from 'react-router-dom';
-import authImg from '../../assets/authImg.svg';
-import logo from '../../assets/logo.svg';
-import Card from 'react-bootstrap/Card';
+import Swal from "sweetalert2";
 
-const schema = yup.object().shape({
-  email: yup
-    .string()
-    .email('Invalid email format')
-    .required('Email is required'),
-  password: yup
-    .string()
-    .min(6, 'Password must be at least 6 characters')
-    .required('Password is required'),
-});
 
 function LoginForm() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [captcha, setCaptcha] = useState(generateCaptcha());
+  const [captchaInput, setCaptchaInput] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   
-  const {
-    control,
-    handleSubmit,
-    formState: { errors, isSubmitting },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-  const navigate = useNavigate();
+  const staticUsername = "admin";
+  const staticPassword = "password123";
 
-  const onSubmit = (data) => {
-    console.log(data);
-    navigate('/nsso-secured/identify-particulate-2');
+  function generateCaptcha() {
+    return Math.random().toString(36).substring(2, 8); // Generates a 6-character alphanumeric captcha
+  }
+
+  const refreshCaptcha = () => {
+    setCaptcha(generateCaptcha());
+    setCaptchaInput("");
   };
 
+  const handleSubmit = () => {
+    if (username !== staticUsername || password !== staticPassword) {
+      setErrorMessage("Invalid username or password!");
+      refreshCaptcha();
+      return;
+    }
+    if (captchaInput !== captcha) {
+      setErrorMessage("Captcha incorrect! Try again.");
+      refreshCaptcha();
+      return;
+    }
+    Swal.fire("Success", "Login successful!", "success");
+
+    navigate('/nsso-secured/compile-schedule');
+  };
+
+
  return (
-    <>Login</>
+  <div>
+      <h2>Login</h2>
+      <div>
+        <label>Username:</label>
+        <input
+          type="text"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Captcha: {captcha}</label>
+        <input
+          type="text"
+          value={captchaInput}
+          onChange={(e) => setCaptchaInput(e.target.value)}
+          required
+        />
+        {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
+        <button type="button" onClick={refreshCaptcha}>Refresh Captcha</button>
+      </div>
+      <button onClick={handleSubmit}>Login</button>
+    </div>
   );
 }
 
