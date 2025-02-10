@@ -743,8 +743,8 @@ ul.top-menu {
       box-shadow: none;
     }
   &-nav{
-    &-item{
-          border-radius: 2.5em;
+    .customnavItem{
+          border-radius: 2.5em!important;
           cursor: pointer;
           color: #4F4F4F !important;
           font-size: 14px;
@@ -778,7 +778,7 @@ ul.top-menu {
 
         i {
           @media screen and (min-width: 1200px) {
-              font-size: large;
+              font-size: 1.2em;
           }
         }
     }
@@ -786,9 +786,10 @@ ul.top-menu {
 }
 .dropdown-menu{
   top: 100%!important;
+  margin-top: 0.7em !important;
 }
 .navbar .navbar-nav .nav-item .nav-link {
-  font-size: 14px;
+  font-size: 14px!important;
   font-weight: 500;
   background-color: transparent;
   color: #4F4F4F !important;
@@ -830,14 +831,14 @@ ul.top-menu {
 }
 #generated-captcha{
   text-decoration: line-through;
-  font-weight: bold;
+  font-weight: 700;
   text-align: center;
   font-size: 25px;
   background-color: #E8EFFF;
   border-radius: 6px;
   border: none;
   outline: none;
-  color: #4C80C9;
+  color: #4C80C9!important;
   position: relative;
   -ms-flex: 1 1 auto;
   flex: 1 1 auto;
@@ -865,36 +866,26 @@ ul.top-menu {
     border-radius: 2.5em!important;
   }
 
-  .rightcard-header {
-    color: #2471DD ;
-    background: none;
-    border: 0;
 
-    h4 {
+ &-title-h4{
+      color: #2471DD !important;
+      font-size:29px!important;
       @media screen and (max-width:994px) {
         font-size: 1em;
       }
-
       @media screen and (max-width:767px) {
         font-size: 1.5em;
       }
     }
-
-    &-title {
-      color: #194480;
-      font-weight: bolder;
-    }
+  &-title-h3 {
+    color: #194480!important;
+    font-weight: 700!important;
+    font-size:26px!important;
   }
 }
-.formGroup {
-  &-formLabel::after {
-      content: "*";
-      margin-left:5px;
-  }
 
-  &-formcontrol::placeholder {
-      color: #A6A6A6;
-  }
+.customFormcontrol::placeholder {
+    color: #A6A6A6!important;
 }
 .logininput-group{
   i{
@@ -925,21 +916,17 @@ ul.top-menu {
   &-first {
     background-color: #EAF1FF;
     width: 100%;
-    @media screen and (max-width: 994px) {
-      font-size: smaller;
-    }
     &-nav {
-      .loginfooter-first-nav-navitem {
-        .loginfooter-first-nav-navitem-link {
+        .loginfooter-first-nav-link {
           color: #0449AA;
-          font-size: smaller;
+          font-size: 12px;
+          font-weight:600;
           text-align: center;
           border-right: 2px solid #0449AA;
           @media screen and (max-width: 994px) {
             margin-top:1em;
           }
         }
-      }
     }
   }
   &-second {
@@ -949,10 +936,10 @@ ul.top-menu {
       p {
           color: white;
           text-align: center;
-          font-size:small;
+          font-size:12px;
 
           @media screen and (max-width: 994px) {
-              font-size: smaller;
+              font-size: 10px;
           }
       }
   }
