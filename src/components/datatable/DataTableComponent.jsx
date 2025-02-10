@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FeatherIcon from "feather-icons-react";  // Import Feather Icons
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-
+import AlertPopup from "../../components/alertpopup/AlertPopup";
 // Sample Data (Full Data Set)
 const tableData = [
   { id: 1, shopCode: "000001", ownerName: "Alexander Pierce", shopName: "Sanjay Store", price: 10872.83, status: "Completed" },
@@ -33,7 +33,6 @@ const getStatusClass = (status) => {
 
 export default function DataTableComponent() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -221,7 +220,7 @@ export default function DataTableComponent() {
         </li>
       </ul>
     </div>
-    <Modal show={show} onHide={handleClose} backdrop="static"
+    {/* <Modal show={show} onHide={handleClose} backdrop="static"
         keyboard={false} aria-labelledby="contained-modal-title-vcenter" centered>
     <Modal.Header closeButton>
       <Modal.Title>Delete Modal</Modal.Title>
@@ -235,6 +234,16 @@ export default function DataTableComponent() {
         Save Changes
       </Button>
     </Modal.Footer>
-  </Modal></>
+  </Modal> */}
+  <AlertPopup
+        title="Delete Modal"
+        description="Are you sure you want to delete this item?"
+        confirmbtnText="Yes Delete"
+        closeBtnText="No! Cancel For Now"
+        show={show}
+        handleClose={handleClose}
+        variant="danger"
+      />
+  </>
   );
 }
