@@ -661,4 +661,29 @@ ul.top-menu {
     color: #4982C4;
 }
 
-
+.loader-container{
+  z-index: 10000;
+  background-color: rgba(238, 238, 238, 0.39);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  .loader-card{
+    width: 400px;
+    border-radius: 15px !important;
+    min-height: 150px;
+    text-align: center;
+    .spinner-border{
+      margin-top: 30px;
+    }
+    h5{
+      font-size: 23px;
+  font-weight: 600;
+  margin: 24px 0 8px;
+  color: #0838bb;
+    }
+    p{
+      font-size: 16px;
+  color: #7b7b7b;
+  line-height: 23px;
+    }
+  }
+}
