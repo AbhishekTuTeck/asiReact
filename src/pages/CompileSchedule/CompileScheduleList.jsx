@@ -152,7 +152,7 @@ export default function CompileScheduleList() {
     <Card.Header>
         <Card.Title className='mb-0'>Filter - Compile Schedule</Card.Title>
       </Card.Header>
-      <Card.Body>
+      <Card.Body className='p-0 siteCustomDatatable'>
          <DataTableComponent />
       </Card.Body>
     </Card>

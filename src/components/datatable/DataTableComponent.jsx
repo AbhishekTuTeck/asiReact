@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import FeatherIcon from "feather-icons-react";  // Import Feather Icons
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { Spinner, Row, Col, Card, Form, Toast } from 'react-bootstrap';
 
 // Sample Data (Full Data Set)
 const tableData = [
@@ -88,22 +89,44 @@ export default function DataTableComponent() {
 
   return (
     <>
-    <div className=" mt-4">
-    
-
+    <Row>
+      <Col md={6}>
+        {/* Per Page Selection */}
+        <div className="dataTablesLength">
+          <Form.Label className="mb-0">
+            Show
+            <Form.Select 
+              size="sm" 
+              value={itemsPerPage} 
+              onChange={handleItemsPerPageChange}
+            >
+                <option value="1">10</option>
+                <option value="1">25</option>
+                <option value="2">50</option>
+                <option value="3">100</option>
+            </Form.Select>
+            Entries
+          </Form.Label>
+        </div>
+      </Col>
+      <Col md={6} className="d-flex justify-content-center justify-content-md-end ">
       {/* Filter Input */}
-      <div className="mb-3">
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Search by Shop Name..."
-          value={filterText}
-          onChange={(e) => setFilterText(e.target.value)}
-        />
-      </div>
-
+        <div className="dataTablesFilter">
+          <Form.Label className="mb-0">
+            Search:
+            <Form.Control 
+              size="sm"
+              type="text" 
+              placeholder="Search by Shop Name..."
+              value={filterText}
+              onChange={(e) => setFilterText(e.target.value)} />
+            </Form.Label>
+        </div>
+      </Col>
+    </Row>
+    <div className="table-responsive">
       {/* Table */}
-      <table className="table table-hover">
+      <table className="table dataTableBody tableHover custom-badge mb-0">
         <thead>
           <tr>
             <th onClick={() => handleSort('id')}>
@@ -182,46 +205,40 @@ export default function DataTableComponent() {
           ))}
         </tbody>
       </table>
-
-      {/* Per Page Selection */}
-      <div className="mb-3">
-        <label>Items per page:</label>
-        <select
-          className="form-control"
-          value={itemsPerPage}
-          onChange={handleItemsPerPageChange}
-        >
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-          <option value="20">20</option>
-        </select>
-      </div>
-
-      {/* Pagination with Custom Button Style */}
-      <ul className="paginationList d-flex justify-content-center">
-        <li className={`paginateButton previousItem ${currentPage === 1 ? "disabled" : ""}`}>
-          <a className="pageLink" onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}>
-            <FeatherIcon icon="chevron-left" size={16} />
-          </a>
-        </li>
-
-        {[...Array(totalPages).keys()].map((pageNum) => (
-          <li key={pageNum + 1} className={`paginateButton ${currentPage === pageNum + 1 ? "active" : ""}`}>
-            <a className="pageLink" onClick={() => setCurrentPage(pageNum + 1)}>
-              {pageNum + 1}
-            </a>
-          </li>
-        ))}
-
-        <li className={`paginateButton nextItem ${currentPage === totalPages ? "disabled" : ""}`}>
-          <a className="btn btn-primary" onClick={() => currentPage < totalPages && setCurrentPage(currentPage + 1)}>
-            <FeatherIcon icon="chevron-right" size={16} />
-          </a>
-        </li>
-      </ul>
     </div>
-    <Modal show={show} onHide={handleClose} backdrop="static"
+    <Row className="align-items-center">
+      <Col md={6}>
+        <div className="dataTablesInfo">Showing 1 to 10 of 100 entries</div>
+      </Col>
+      <Col md={6}>
+        <div className="dataTablesPaginate">
+          {/* Pagination with Custom Button Style */}
+            <ul className="paginationList">
+              <li className={`paginateButton previousItem ${currentPage === 1 ? "disabled" : ""}`}>
+                <a className="pageLink" onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}>
+                  <FeatherIcon icon="chevron-left" size={16} />
+                </a>
+              </li>
+
+              {[...Array(totalPages).keys()].map((pageNum) => (
+                <li key={pageNum + 1} className={`paginateButton ${currentPage === pageNum + 1 ? "active" : ""}`}>
+                  <a className="pageLink" onClick={() => setCurrentPage(pageNum + 1)}>
+                    {pageNum + 1}
+                  </a>
+                </li>
+              ))}
+
+              <li className={`paginateButton nextItem ${currentPage === totalPages ? "disabled" : ""}`}>
+                <a className="pageLink" onClick={() => currentPage < totalPages && setCurrentPage(currentPage + 1)}>
+                  <FeatherIcon icon="chevron-right" size={16} />
+                </a>
+              </li>
+            </ul>
+        </div>
+      </Col>
+    </Row>
+    
+    {/* <Modal show={show} onHide={handleClose} backdrop="static"
         keyboard={false} aria-labelledby="contained-modal-title-vcenter" centered>
     <Modal.Header closeButton>
       <Modal.Title>Delete Modal</Modal.Title>
@@ -235,6 +252,7 @@ export default function DataTableComponent() {
         Save Changes
       </Button>
     </Modal.Footer>
-  </Modal></>
+  </Modal> */}
+  </>
   );
 }
