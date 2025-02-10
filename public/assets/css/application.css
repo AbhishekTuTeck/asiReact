@@ -747,7 +747,7 @@ ul.top-menu li a svg {
   .custom-loginnavbar {
     border-radius: 0;
     margin: 1em 0em;
-    background: transparent;
+    background: transparent!important;
     box-shadow: none;
   }
 }
@@ -759,12 +759,10 @@ ul.top-menu li a svg {
   background-color: transparent;
   border-radius: 1.5em;
 }
-.custom-loginnavbar-nav-item .dropdown-menu {
-  top: 100%!important;
-}
 .custom-loginnavbar-nav-item:hover {
   color: #fff !important;
   background: linear-gradient(to right, #6CA7F9, #133D77);
+  padding: 4px;
 }
 .custom-loginnavbar-nav-item:active {
   background: linear-gradient(to right, #6CA7F9, #133D77);
@@ -798,12 +796,16 @@ ul.top-menu li a svg {
     font-size: large;
   }
 }
+.dropdown-menu {
+  top: 100%!important;
+}
 .navbar .navbar-nav .nav-item .nav-link {
   font-size: 14px;
   font-weight: 500;
-  text-transform: capitalize;
   background-color: transparent;
   color: #4F4F4F !important;
+  margin: 0!important;
+  padding: 0!important;
 }
 .navbar .navbar-nav .nav-item:hover .nav-link {
   color: #fff !important;
@@ -850,6 +852,16 @@ ul.top-menu li a svg {
   width: 1%;
   min-width: 0;
   margin-bottom: 0;
+  border-top-left-radius: 6px !important;
+  border-bottom-left-radius: 6px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+.captcharefreshbtn {
+  border-top-right-radius: 6px!important;
+  border-bottom-right-radius: 6px!important;
+  border-top-left-radius: 0px!important;
+  border-bottom-left-radius: 0px!important;
 }
 .rightcard {
   border-radius: 10%!important;
