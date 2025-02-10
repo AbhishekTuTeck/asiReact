@@ -63,35 +63,35 @@ function LoginForm() {
           <Navbar.Toggle aria-controls="navbarToggler">
             <i className="bi bi-list"></i>
           </Navbar.Toggle>
-          <Navbar.Collapse id="navbarToggler">
+          <Navbar.Collapse id="navbarToggler" className="loginnavbarcollapse">
             <Nav className="custom-loginnavbar-nav d-flex justify-content-between align-items-center w-100" variant="pills" defaultActiveKey="/home">
-              <Nav.Item className="custom-loginnavbar-nav-item py-2 px-1">
+              <Nav.Item className="custom-loginnavbar-nav-item px-3 py-2 d-flex justify-content-between align-items-center">
                 <i className="bi bi-house-door me-2"></i>Home
               </Nav.Item>
-              <Nav.Item className="custom-loginnavbar-nav-item py-2 px-1">
+              <Nav.Item className="custom-loginnavbar-nav-item px-3 py-2 d-flex justify-content-between align-items-center">
                 <i className="bi bi-arrow-counterclockwise me-2"></i>History
               </Nav.Item>
-              <Nav.Item className="custom-loginnavbar-nav-item py-2 px-1">
+              <Nav.Item className="custom-loginnavbar-nav-item px-3 py-2 d-flex justify-content-between align-items-center">
                 <i className="bi bi-grid me-2"></i>Present Structure
               </Nav.Item>
-              <Nav.Item className="custom-loginnavbar-nav-item py-2 px-1">
+              <Nav.Item className="custom-loginnavbar-nav-item px-3 py-2 d-flex justify-content-between align-items-center">
                 <i className="bi bi-gear me-2"></i>Functions
               </Nav.Item>
-              <NavDropdown className="custom-loginnavbar-nav-item" title={<><i className="bi bi-info-circle me-2"></i>About</>}>
+              <NavDropdown className="custom-loginnavbar-nav-item px-3 py-2" title={<><i className="bi bi-info-circle me-2"></i>About</>}>
                 <NavDropdown.Item className="custom-loginnavbar-nav-item-dropdown" href="#">Lorem Ipsum</NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item className="custom-loginnavbar-nav-item-dropdown" href="#">Lorem Ipsum</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Item className="custom-loginnavbar-nav-item py-2 px-1">
+              <Nav.Item className="custom-loginnavbar-nav-item px-3 py-2 d-flex justify-content-between align-items-center">
                 <i className="bi bi-card-text me-2"></i>ASI Manual
               </Nav.Item>
-              <Nav.Item className="custom-loginnavbar-nav-item py-2 px-1">
+              <Nav.Item className="custom-loginnavbar-nav-item px-3 py-2 d-flex justify-content-between align-items-center">
                 <i className="bi bi-circle me-2"></i>NIC
               </Nav.Item>
-              <Nav.Item className="custom-loginnavbar-nav-item py-2 px-1">
+              <Nav.Item className="custom-loginnavbar-nav-item px-3 py-2 d-flex justify-content-between align-items-center">
                 <i className="bi bi-circle me-2"></i>NPCMS
               </Nav.Item>
-              <Nav.Item className="custom-loginnavbar-nav-item py-2 px-1">
+              <Nav.Item className="custom-loginnavbar-nav-item px-3 py-2 d-flex justify-content-between align-items-center">
                 <i className="bi bi-bank me-2"></i>State IIP
               </Nav.Item>
             </Nav>
@@ -105,14 +105,14 @@ function LoginForm() {
                 <Carousel id="login-carousel" className="custom-carousel">
                   <Carousel.Item className="custom-carousel-inneritem active">
                     <img
-                      src="src\assets\hero_image_1.avif"
+                      src="src\assets\hero_image_1.jpg"
                       className="d-block w-100"
                       alt=""
                     />
                   </Carousel.Item>
                   <Carousel.Item className="custom-carousel-inneritem">
                     <img
-                      src="src\assets\hero_image_2.avif"
+                      src="src\assets\hero_image_2.jpg"
                       className="d-block w-100"
                       alt=""
                     />
@@ -167,7 +167,7 @@ function LoginForm() {
                         readOnly
                       />
                       <InputGroup.Text className="p-0 border-0">
-                      <Button type="button" className="d-flex align-items-center btn btn-primary" onClick={refreshCaptcha}><i className="bi bi-arrow-clockwise"></i></Button>
+                      <Button type="button" className="btn btn-primary captcharefreshbtn" onClick={refreshCaptcha}><i className="bi bi-arrow-clockwise"></i></Button>
                       </InputGroup.Text>
                     </InputGroup>
                   </Col>
@@ -181,7 +181,7 @@ function LoginForm() {
                       onChange={(e) => setCaptchaInput(e.target.value)}
                       required
                       />
-                      {errorMessage && <div className="alert alert-danger"><i class="bi bi-exclamation-circle me-2"></i>{errorMessage}</div>}
+                      {errorMessage && <div className="alert alert-danger"><i class="bi bi-exclamation-triangle me-2"></i>{errorMessage}</div>}
                   </Col>
                   <Col md={12} sm={12} className="my-3">
                     <button className="btn-block py-2" onClick={handleSubmit}>Login</button>
