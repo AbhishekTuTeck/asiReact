@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import FeatherIcon from "feather-icons-react";  // Import Feather Icons
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+
+import AlertPopup from "../../components/alertpopup/AlertPopup";
+
 import { Spinner, Row, Col, Card, Form, Toast } from 'react-bootstrap';
+
 
 // Sample Data (Full Data Set)
 const tableData = [
@@ -34,7 +38,6 @@ const getStatusClass = (status) => {
 
 export default function DataTableComponent() {
   const [show, setShow] = useState(false);
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -228,6 +231,7 @@ export default function DataTableComponent() {
                 </li>
               ))}
 
+
               <li className={`paginateButton nextItem ${currentPage === totalPages ? "disabled" : ""}`}>
                 <a className="pageLink" onClick={() => currentPage < totalPages && setCurrentPage(currentPage + 1)}>
                   <FeatherIcon icon="chevron-right" size={16} />
@@ -238,21 +242,18 @@ export default function DataTableComponent() {
       </Col>
     </Row>
     
-    {/* <Modal show={show} onHide={handleClose} backdrop="static"
-        keyboard={false} aria-labelledby="contained-modal-title-vcenter" centered>
-    <Modal.Header closeButton>
-      <Modal.Title>Delete Modal</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-    <Modal.Footer>
-      <Button variant="secondary" onClick={handleClose}>
-        Close
-      </Button>
-      <Button variant="primary" onClick={handleClose}>
-        Save Changes
-      </Button>
-    </Modal.Footer>
-  </Modal> */}
+
+
+  <AlertPopup
+        title="Delete Modal"
+        description="Are you sure you want to delete this item?"
+        confirmbtnText="Yes Delete"
+        closeBtnText="No! Cancel For Now"
+        show={show}
+        handleClose={handleClose}
+        variant="danger"
+      />
+
   </>
   );
 }
