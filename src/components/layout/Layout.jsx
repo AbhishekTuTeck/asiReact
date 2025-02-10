@@ -2,11 +2,13 @@ import PropTypes from "prop-types";
 import SideBar from "../sidebar/Sidebar";
 import TopBar from "../topbar/Topbar";
 import Footer from "../footer/Footer";
-import Breadcrumb from "../breadcrumb/Breadcrumb";
+
+import LoadingComponent from "../../components/loading-component/LoadingComponent";
 
 export default function Layout(props) {
   return (
     <div id="app-layout">
+       {/* <LoadingComponent/> */}
       <TopBar />
       <SideBar />
       <div className="content-page">
