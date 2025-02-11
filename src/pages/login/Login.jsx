@@ -1,7 +1,21 @@
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-import { Container, Navbar, Nav, NavDropdown, Button, Badge, Row, Col, Card, Carousel, Form, FormControl, InputGroup, } from 'react-bootstrap';
+import {
+  Container,
+  Navbar,
+  Nav,
+  NavDropdown,
+  Button,
+  Badge,
+  Row,
+  Col,
+  Card,
+  Carousel,
+  Form,
+  FormControl,
+  InputGroup,
+} from "react-bootstrap";
 
 
 function LoginForm() {
@@ -12,7 +26,7 @@ function LoginForm() {
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
 
-  const staticUsername = "admin";
+  const staticUsername = "asi";
   const staticPassword = "password123";
 
   function generateCaptcha() {
@@ -40,16 +54,22 @@ function LoginForm() {
     navigate('/nsso-secured/compile-schedule');
   };
 
+  useEffect(() => {
+    document.body.classList.add("login-page");
 
+    return () => {
+      document.body.classList.remove("login-page");
+    };
+  }, []);
   return (
     <div className="loginbackground w-100 h-100">
       <Container>
         <Navbar expand="lg" className="bg-transparent py-3 custom-badge d-flex align-items-center">
           <Navbar.Brand className="navbrand" href="#">
-            <img src="src\assets\logo.svg" className="img-fluid pe-4" alt="" width="200" height="61.66" />
+            <img src="src\assets\logo.svg" className="img-fluid pe-4" alt="" width="230" />
           </Navbar.Brand>
           <Navbar.Brand className="navbrand2" href="#">
-            <img src="src\assets\NSS_logo.png" className="img-fluid border-0" alt="" width="120" height="61.66" />
+            <img src="src\assets\NSS_logo.png" className="img-fluid border-0" alt="" width="130"  />
           </Navbar.Brand>
           <Badge className="badge badge-outline badge-danger px-3">ASI</Badge>
           <Nav className="ms-auto">
@@ -64,64 +84,55 @@ function LoginForm() {
             <i className="bi bi-list"></i>
           </Navbar.Toggle>
           <Navbar.Collapse id="navbarToggler" className="loginnavbarcollapse">
-            <Nav className="custom-loginnavbar-nav d-flex justify-content-between align-items-center w-100" variant="pills" defaultActiveKey="/home">
-              <Nav.Item className="customnavItem px-3 py-2">
-                <Nav.Link className="d-flex justify-content-between align-items-center" eventKey="1" href="https://www.google.com/home">
-                <i className="bi bi-house-door me-2"></i>Home
-                </Nav.Link>
+
+            <Nav className="custom-loginnavbar-nav d-flex justify-content-between align-items-center w-100" variant="pills" as="ul">
+              <Nav.Item  as="li">
+                <Link to=""><i className="bi bi-house-door me-2"></i>Home</Link>
               </Nav.Item>
-              <Nav.Item className="customnavItem px-3 py-2">
-                  <Nav.Link className="d-flex justify-content-between align-items-center" eventKey="1" href="">
-                  <i className="bi bi-arrow-counterclockwise me-2"></i>History
-                  </Nav.Link>
+              <Nav.Item  as="li">
+              <Link to=""><i className="bi bi-arrow-counterclockwise me-2"></i>History</Link>
               </Nav.Item>
-              <Nav.Item className="customnavItem px-3 py-2">
-                  <Nav.Link className="d-flex justify-content-between align-items-center" eventKey="1" href="#">
-                  <i className="bi bi-grid me-2"></i>Present Structure
-                  </Nav.Link>
+              <Nav.Item  as="li">
+              <Link to=""><i className="bi bi-grid me-2"></i>Present Structure</Link>
               </Nav.Item>
-              <Nav.Item className="customnavItem px-3 py-2">
-                <Nav.Link className="d-flex justify-content-between align-items-center" eventKey="1" href="#">
-                  <i className="bi bi-gear me-2"></i>Functions
-                </Nav.Link>
+              <Nav.Item  as="li">
+              <Link to=""><i className="bi bi-gear me-2"></i>Functions</Link>
               </Nav.Item>
-              <Nav.Item className="customnavItem px-3 py-2">
-                <NavDropdown  title={<><i className="bi bi-info-circle me-2"></i>About</>}>
-                  <NavDropdown.Item className="" href="#">Lorem Ipsum</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item className="" href="#">Lorem Ipsum</NavDropdown.Item>
-                </NavDropdown>
+              <NavDropdown className="custom-loginnavbar-nav-item px-3 py-2" title={<><i className="bi bi-info-circle me-2"></i>About</>} as="li">
+                <NavDropdown.Item className="custom-loginnavbar-nav-item-dropdown"> <Link to="">About ASI</Link></NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item className="custom-loginnavbar-nav-item-dropdown"> <Link to="">About ASB</Link></NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Item  as="li">
+              <Link to=""> <i className="bi bi-card-text me-2"></i>ASI Manual</Link>
               </Nav.Item>
-              <Nav.Item className="customnavItem px-3 py-2">
-                <Nav.Link className="d-flex justify-content-between align-items-center" eventKey="1" href="#">
-                  <i className="bi bi-card-text me-2"></i>ASI Manual
-                </Nav.Link>
+              <Nav.Item  as="li">
+              <Link to=""> <i className="bi bi-circle me-2"></i>NIC</Link>
               </Nav.Item>
-              <Nav.Item className="customnavItem px-3 py-2">
-                <Nav.Link className="d-flex justify-content-between align-items-center" eventKey="1" href="#">
-                  <i className="bi bi-circle me-2"></i>NIC
-                </Nav.Link>
+              <Nav.Item  as="li">
+              <Link to=""><i className="bi bi-circle me-2"></i>NPCMS</Link>
               </Nav.Item>
-              <Nav.Item className="customnavItem px-3 py-2">
-                <Nav.Link className="d-flex justify-content-between align-items-center" eventKey="1" href="#">
-                  <i className="bi bi-circle me-2"></i>NPCMS
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item className="customnavItem px-3 py-2">
-                <Nav.Link className="d-flex justify-content-between align-items-center" eventKey="1" href="#">
-                  <i className="bi bi-bank me-2"></i>State IIP
-                </Nav.Link>
+              <Nav.Item  as="li">
+              <Link to=""><i className="bi bi-bank me-2"></i>State IIP</Link>
+
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <Row className="mb-5 mt-3">
+        <Row className="mb-3 mt-3 align-items-center">
           <Col md={7}>
             <Card className="leftcard shadow-none">
-              <Card.Header as="h5" className="leftcard-header p-0 pb-4 m-0 border-0">National Statistical Office - Industrial Statistics Wing</Card.Header>
+              <Card.Header as="h5" className="leftcard-header mt-3 p-0 pb-4 m-0 border-0">National Statistical Office - Industrial Statistics Wing</Card.Header>
               <Card.Body className="p-0 leftcard-body">
-                <Carousel id="login-carousel" className="custom-carousel">
+                <Carousel id="login-carousel" className="custom-carousel" fade>
                   <Carousel.Item className="custom-carousel-inneritem active">
+                    <img
+                      src="src\assets\hero_image_2.jpg"
+                      className="d-block w-100"
+                      alt=""
+                    />
+                  </Carousel.Item>
+                  <Carousel.Item className="custom-carousel-inneritem">
                     <img
                       src="src\assets\hero_image_1.jpg"
                       className="d-block w-100"
@@ -130,7 +141,7 @@ function LoginForm() {
                   </Carousel.Item>
                   <Carousel.Item className="custom-carousel-inneritem">
                     <img
-                      src="src\assets\hero_image_2.jpg"
+                      src="src\assets\hero_image_3.jpg"
                       className="d-block w-100"
                       alt=""
                     />
@@ -140,9 +151,13 @@ function LoginForm() {
             </Card>
           </Col>
           <Col md={5}>
-            <Card className="rightcard py-5 px-5">
-              <Card.Title className="rightcard-title-h4">Welcome Back !</Card.Title>
-              <Card.Title className="rightcard-title-h3">Login</Card.Title>
+
+            <Card className="rightcard py-4 px-5 login-card-contain">
+              <Card.Header className="rightcard-header p-0">
+                <h4 className="rightcard-header-h4">Welcome Back !</h4>
+                <h3 className="rightcard-header-title">Login</h3>
+              </Card.Header>
+
               <Card.Body className="p-0 rightcard-body">
                 <Row>
                   <Col md={12} sm={12}>
@@ -155,6 +170,8 @@ function LoginForm() {
                         onChange={(e) => setUsername(e.target.value)}
                         required
                         placeholder="Enter Username"
+                        
+                        size="lg"
                       />
                     </Form.Group>
                   </Col>
@@ -168,6 +185,8 @@ function LoginForm() {
                         onChange={(e) => setPassword(e.target.value)}
                         required
                         placeholder="Enter Password"
+                        
+                        size="lg"
                       />
                     </Form.Group>
                   </Col>
@@ -182,8 +201,10 @@ function LoginForm() {
                         required
                         readOnly
                       />
-                      <InputGroup.Text className="p-0 border-0">
-                        <Button type="button" className="btn btn-primary captcharefreshbtn" onClick={refreshCaptcha}><i className="bi bi-arrow-clockwise"></i></Button>
+
+                      <InputGroup.Text className="p-0 border-0" >
+                      <Button type="button" className="btn btn-primary captcharefreshbtn" onClick={refreshCaptcha}><i className="bi bi-arrow-clockwise"></i></Button>
+
                       </InputGroup.Text>
                     </InputGroup>
                   </Col>
@@ -196,17 +217,20 @@ function LoginForm() {
                       value={captchaInput}
                       onChange={(e) => setCaptchaInput(e.target.value)}
                       required
-                    />
-                    {errorMessage && <div className="alert alert-danger"><i class="bi bi-exclamation-triangle me-2"></i>{errorMessage}</div>}
+
+                      size="lg"
+                      />
+                      {errorMessage && <div className="alert alert-danger"><i class="bi bi-exclamation-triangle me-2"></i>{errorMessage}</div>}
                   </Col>
-                  <Col md={12} sm={12} className="">
-                    <button className="btn-block py-2" onClick={handleSubmit}>Login</button>
+                  <Col md={12} sm={12} className="my-3 d-grid">
+                    <button className="py-2 btn btn-primary btn-lg" onClick={handleSubmit}>Login</button>
                   </Col>
-                  {/*  <Col className="col-md-12 col-sm-12">
+                  <Col className="col-md-12 col-sm-12">
+
                     <div className="forgetpasswordlink d-flex justify-content-end">
                       <a href="#">Forgot Password?</a>
                     </div>
-                  </Col> */}
+                  </Col>
                 </Row>
               </Card.Body>
             </Card>
@@ -215,16 +239,36 @@ function LoginForm() {
       </Container>
       <div className="loginfooter">
         <div className="loginfooter-first py-3 px-3">
-          <Nav className="loginfooter-first-nav">
-            <Nav.Link className="loginfooter-first-nav-link py-0 pe-4" href="#">RTI</Nav.Link>
-            <Nav.Link className="loginfooter-first-nav-link py-0 pe-4" href="#">Public</Nav.Link>
-            <Nav.Link className="loginfooter-first-nav-link py-0 pe-4" href="#">Notice</Nav.Link>
-            <Nav.Link className="loginfooter-first-nav-link py-0 pe-4" href="#">Photo</Nav.Link>
-            <Nav.Link className="loginfooter-first-nav-link py-0 pe-4" href="#">Gallery</Nav.Link>
-            <Nav.Link className="loginfooter-first-nav-link py-0 pe-4" href="#">Telephone Directory</Nav.Link>
-            <Nav.Link className="loginfooter-first-nav-link py-0 pe-4" href="#">Feedback</Nav.Link>
-            <Nav.Link className="loginfooter-first-nav-link py-0 pe-4 border-0" href="#">Disclaimer</Nav.Link>
+
+        <div class="container">
+          <Nav className="loginfooter-first-nav align-items-center justify-content-center" as="ul">
+            <Nav.Item className="loginfooter-first-nav-navitem" as="li">
+              <Nav.Link className="loginfooter-first-nav-navitem-link py-0 pe-4" href="#">RTI</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="loginfooter-first-nav-navitem" as="li">
+              <Nav.Link className="loginfooter-first-nav-navitem-link py-0 pe-4" href="#">Public</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="loginfooter-first-nav-navitem" as="li">
+              <Nav.Link className="loginfooter-first-nav-navitem-link py-0 pe-4" href="#">Notice</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="loginfooter-first-nav-navitem" as="li">
+              <Nav.Link className="loginfooter-first-nav-navitem-link py-0 pe-4" href="#">Photo</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="loginfooter-first-nav-navitem" as="li">
+              <Nav.Link className="loginfooter-first-nav-navitem-link py-0 pe-4" href="#">Gallery</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="loginfooter-first-nav-navitem" as="li">
+              <Nav.Link className="loginfooter-first-nav-navitem-link py-0 pe-4" href="#">Telephone Directory</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="loginfooter-first-nav-navitem" as="li">
+              <Nav.Link className="loginfooter-first-nav-navitem-link py-0 pe-4" href="#">Feedback</Nav.Link>
+            </Nav.Item>
+            <Nav.Item className="loginfooter-first-nav-navitem" as="li">
+              <Nav.Link className="loginfooter-first-nav-navitem-link py-0 pe-4" href="#">Disclaimer</Nav.Link>
+            </Nav.Item>
+
           </Nav>
+          </div>
         </div>
         <div className="loginfooter-second">
           <div class="container">
