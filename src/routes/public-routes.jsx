@@ -9,6 +9,8 @@ import ForgotPassword from '../pages/forgotPassword/ForgotPassword';
 import ResetPassword from '../pages/reset-password/ResetPassword';
 import CompileScheduleList from '../pages/CompileSchedule/CompileScheduleList';
 import CompileScheduleGeneralInfo from '../pages/CompileSchedule/CompileScheduleGeneralInfo';
+import FixedAssetsData from '../pages/CompileSchedule/FixedAssetsData';
+import ProfitLossAccount from '../pages/CompileSchedule/ProfitLossAccount';
 
 function PublicRoutes() {
   const router = createBrowserRouter([
@@ -37,6 +39,14 @@ function PublicRoutes() {
         {
           path: 'compile-schedule/compile-schedule-generalinfo',
           element: <CompileScheduleGeneralInfo />,
+        },
+        {
+          path: 'compile-schedule/fixed-assets-data',
+          element: <FixedAssetsData />,
+        },
+        {
+          path: 'compile-schedule/profit-loss-account',
+          element: <ProfitLossAccount />,
         },
       ],
     },
