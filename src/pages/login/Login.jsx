@@ -84,6 +84,7 @@ function LoginForm() {
             <i className="bi bi-list"></i>
           </Navbar.Toggle>
           <Navbar.Collapse id="navbarToggler" className="loginnavbarcollapse">
+
             <Nav className="custom-loginnavbar-nav d-flex justify-content-between align-items-center w-100" variant="pills" as="ul">
               <Nav.Item  as="li">
                 <Link to=""><i className="bi bi-house-door me-2"></i>Home</Link>
@@ -113,6 +114,7 @@ function LoginForm() {
               </Nav.Item>
               <Nav.Item  as="li">
               <Link to=""><i className="bi bi-bank me-2"></i>State IIP</Link>
+
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
@@ -149,19 +151,21 @@ function LoginForm() {
             </Card>
           </Col>
           <Col md={5}>
+
             <Card className="rightcard py-4 px-5 login-card-contain">
               <Card.Header className="rightcard-header p-0">
                 <h4 className="rightcard-header-h4">Welcome Back !</h4>
                 <h3 className="rightcard-header-title">Login</h3>
               </Card.Header>
+
               <Card.Body className="p-0 rightcard-body">
                 <Row>
                   <Col md={12} sm={12}>
-                    <Form.Group controlId="formUsername" className="formGroup  mb-3">
-                      <Form.Label className="formGroup-formLabel">Username:</Form.Label>
+                    <Form.Group controlId="formUsername" className="mb-3">
+                      <Form.Label>Username<span>*</span></Form.Label>
                       <FormControl
                         type="text"
-                        className="formGroup-formcontrol"
+                        className="customFormcontrol"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
@@ -172,11 +176,11 @@ function LoginForm() {
                     </Form.Group>
                   </Col>
                   <Col md={12} sm={12}>
-                    <Form.Group controlId="formPassword" className="formGroup  mb-3">
-                      <Form.Label className="formGroup-formLabel">Password:</Form.Label>
+                    <Form.Group controlId="formPassword" className="mb-3">
+                      <Form.Label>Password<span>*</span></Form.Label>
                       <FormControl
                         type="password"
-                        className="formGroup-formcontrol"
+                        className="customFormcontrol"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
@@ -197,8 +201,10 @@ function LoginForm() {
                         required
                         readOnly
                       />
+
                       <InputGroup.Text className="p-0 border-0" >
                       <Button type="button" className="btn btn-primary captcharefreshbtn" onClick={refreshCaptcha}><i className="bi bi-arrow-clockwise"></i></Button>
+
                       </InputGroup.Text>
                     </InputGroup>
                   </Col>
@@ -211,6 +217,7 @@ function LoginForm() {
                       value={captchaInput}
                       onChange={(e) => setCaptchaInput(e.target.value)}
                       required
+
                       size="lg"
                       />
                       {errorMessage && <div className="alert alert-danger"><i class="bi bi-exclamation-triangle me-2"></i>{errorMessage}</div>}
@@ -219,6 +226,7 @@ function LoginForm() {
                     <button className="py-2 btn btn-primary btn-lg" onClick={handleSubmit}>Login</button>
                   </Col>
                   <Col className="col-md-12 col-sm-12">
+
                     <div className="forgetpasswordlink d-flex justify-content-end">
                       <a href="#">Forgot Password?</a>
                     </div>
@@ -231,6 +239,7 @@ function LoginForm() {
       </Container>
       <div className="loginfooter">
         <div className="loginfooter-first py-3 px-3">
+
         <div class="container">
           <Nav className="loginfooter-first-nav align-items-center justify-content-center" as="ul">
             <Nav.Item className="loginfooter-first-nav-navitem" as="li">
@@ -257,6 +266,7 @@ function LoginForm() {
             <Nav.Item className="loginfooter-first-nav-navitem" as="li">
               <Nav.Link className="loginfooter-first-nav-navitem-link py-0 pe-4" href="#">Disclaimer</Nav.Link>
             </Nav.Item>
+
           </Nav>
           </div>
         </div>
