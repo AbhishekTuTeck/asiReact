@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-      <ToastComponent />
+      {/* <ToastComponent /> */}
       <App />
     </Provider>
   </StrictMode>

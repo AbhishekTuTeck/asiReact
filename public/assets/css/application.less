@@ -16,7 +16,10 @@ a {
 h6 {
     font-size: 0.875rem !important;
 }
-
+.form-control::placeholder {
+  color:#9cb3ca !important;
+  opacity: 1;
+}
 .topbar-custom {
     .topnav-menu {
         .nav-link.nav-user {
@@ -695,7 +698,7 @@ ul.top-menu {
 }
 /*Anjali login Page Style Start*/
 .loginbackground{
-  backdrop-filter: blur(104px);
+  backdrop-filter: blur(10px);
 }
 .navbar {
   .navbrand{
@@ -742,23 +745,26 @@ ul.top-menu {
       background:transparent!important;
       box-shadow: none;
     }
-  &-nav{
-    &-item{
+  ul{
+    li{
+      a{
+        color: #4F4F4F !important;
+        &:hover {
+          color: #fff!important;
+          background: linear-gradient(to right, #6CA7F9, #133D77);
+         
+        }
+        &:active{
+          background: linear-gradient(to right, #6CA7F9, #133D77);
+          border-radius: 1.5em;
+          color: white;
+      }
           border-radius: 2.5em;
-          cursor: pointer;
-          color: #4F4F4F !important;
+          padding: 7px 14px;
           font-size: 14px;
           background-color: transparent;
           border-radius: 1.5em;
-          &:hover {
-            color: #fff!important;
-            background: linear-gradient(to right, #6CA7F9, #133D77);
-            padding: 4px;
-          }
-          &:active{
-            background: linear-gradient(to right, #6CA7F9, #133D77);
-            border-radius: 1.5em;
-            color: white;
+       
             @media screen and (max-width: 994px) {
               border-radius: 1em;
               padding: 0em 0.2em;
@@ -804,10 +810,6 @@ ul.top-menu {
 
   &-header {
       color: #1B4582!important;
-
-      @media screen and (max-width: 994px) {
-          font-size: 1em;
-      }
   }
 
   &-body {
@@ -871,18 +873,16 @@ ul.top-menu {
     border: 0;
 
     h4 {
-      @media screen and (max-width:994px) {
-        font-size: 1em;
-      }
-
-      @media screen and (max-width:767px) {
-        font-size: 1.5em;
-      }
+      font-size: 29px;
+      font-weight: 400;
     }
 
     &-title {
       color: #194480;
-      font-weight: bolder;
+      font-weight: 800;
+      font-size: 26px;
+      margin-top: 7px;
+      margin-bottom: 25px;
     }
   }
 }
@@ -902,14 +902,7 @@ ul.top-menu {
   }
 }
 
-.btn-block {
-  border: none;
-  display: block;
-  width: max(100%);
-  background: linear-gradient(to right, #6CA7F9, #133D77);
-  color: #fff;
-  border-radius: 0.5em;
-}
+
 .forgetpasswordlink{
   a{
     color: #1E41D1;
@@ -956,4 +949,11 @@ ul.top-menu {
           }
       }
   }
+}
+.login-card-contain{
+  background-color:rgba(220, 2235, 255, 0.12)  !important;
+  z-index: 1;
+  box-shadow: 1px 1px 1px .2px #fff !important;
+  border: 1px solid #EDEDED !important;
+  backdrop-filter: blur(20px) !important;
 }
