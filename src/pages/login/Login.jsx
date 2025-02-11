@@ -153,7 +153,7 @@ function LoginForm() {
           <Col md={5}>
 
             <Card className="rightcard py-4 px-5 login-card-contain">
-              <Card.Header className="rightcard-header p-0">
+              <Card.Header className="rightcard-header p-0 border-0">
                 <h4 className="rightcard-header-h4">Welcome Back !</h4>
                 <h3 className="rightcard-header-title">Login</h3>
               </Card.Header>
@@ -162,7 +162,7 @@ function LoginForm() {
                 <Row>
                   <Col md={12} sm={12}>
                     <Form.Group controlId="formUsername" className="mb-3">
-                      <Form.Label>Username<span>*</span></Form.Label>
+                      <Form.Label>Username<span className="text-danger"> *</span></Form.Label>
                       <FormControl
                         type="text"
                         className="customFormcontrol"
@@ -177,7 +177,7 @@ function LoginForm() {
                   </Col>
                   <Col md={12} sm={12}>
                     <Form.Group controlId="formPassword" className="mb-3">
-                      <Form.Label>Password<span>*</span></Form.Label>
+                      <Form.Label>Password<span className="text-danger"> *</span></Form.Label>
                       <FormControl
                         type="password"
                         className="customFormcontrol"
