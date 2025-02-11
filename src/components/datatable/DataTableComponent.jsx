@@ -1,259 +1,171 @@
 import React, { useState } from "react";
-import FeatherIcon from "feather-icons-react";  // Import Feather Icons
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-
-import AlertPopup from "../../components/alertpopup/AlertPopup";
-
-import { Spinner, Row, Col, Card, Form, Toast } from 'react-bootstrap';
+import FeatherIcon from "feather-icons-react";
+import { Row, Col, Form, Button } from "react-bootstrap";
 
 
-// Sample Data (Full Data Set)
-const tableData = [
-  { id: 1, shopCode: "000001", ownerName: "Alexander Pierce", shopName: "Sanjay Store", price: 10872.83, status: "Completed" },
-  { id: 2, shopCode: "000002", ownerName: "John Doe", shopName: "Tea Stall", price: 11446.30, status: "Pending" },
-  { id: 3, shopCode: "000003", ownerName: "Jane Smith", shopName: "Fruit Shop", price: 14227.10, status: "Rejected" },
-  { id: 4, shopCode: "000004", ownerName: "Alice Johnson", shopName: "Grocery Store", price: 10222.75, status: "Completed" },
-  { id: 6, shopCode: "000005", ownerName: "Bob Lee", shopName: "Bookstore", price: 13476.50, status: "Pending" },
-  { id: 7, shopCode: "000001", ownerName: "Alexander Pierce", shopName: "Sanjay Store", price: 10872.83, status: "Completed" },
-  { id: 8, shopCode: "000002", ownerName: "John Doe", shopName: "Tea Stall", price: 11446.30, status: "Pending" },
-  { id: 9, shopCode: "000003", ownerName: "Jane Smith", shopName: "Fruit Shop", price: 14227.10, status: "Rejected" },
-  { id: 10, shopCode: "000004", ownerName: "Alice Johnson", shopName: "Grocery Store", price: 10222.75, status: "Completed" },
-  { id: 11, shopCode: "000005", ownerName: "Bob Lee", shopName: "Bookstore", price: 13476.50, status: "Pending" },
-];
+export default function DataTableComponent({ columns, data, onEdit, onDelete }) {
 
-// Function to Assign Status Colors
-const getStatusClass = (status) => {
-  switch (status) {
-    case "Completed":
-      return "bg-success text-white";
-    case "Pending":
-      return "bg-warning text-dark";
-    case "Rejected":
-      return "bg-danger text-white";
-    default:
-      return "bg-secondary text-white";
-  }
-};
-
-export default function DataTableComponent() {
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const [filterText, setFilterText] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(5);  // Default 5 items per page
-  const [sortConfig, setSortConfig] = useState({ key: 'id', direction: 'ascending' });
+  const [itemsPerPage, setItemsPerPage] = useState(5);
+  const [sortConfig, setSortConfig] = useState({ key: null, direction: "ascending" });
 
-  // Sorting Function
-  const sortedData = [...tableData].sort((a, b) => {
+  // Sorting function
+  const sortedData = [...data].sort((a, b) => {
+    if (!sortConfig.key) return 0;
     if (a[sortConfig.key] < b[sortConfig.key]) {
-      return sortConfig.direction === 'ascending' ? -1 : 1;
+      return sortConfig.direction === "ascending" ? -1 : 1;
     }
     if (a[sortConfig.key] > b[sortConfig.key]) {
-      return sortConfig.direction === 'ascending' ? 1 : -1;
+      return sortConfig.direction === "ascending" ? 1 : -1;
     }
     return 0;
   });
 
-  // Filtering Data
+  // Filtering function
   const filteredData = sortedData.filter((item) =>
-    item.shopName.toLowerCase().includes(filterText.toLowerCase())
+    columns.some((col) => 
+      item[col.key] && item[col.key].toString().toLowerCase().includes(filterText.toLowerCase())
+    )
   );
 
-  // Pagination Logic
+  // Pagination
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
   // Handle Sorting
   const handleSort = (key) => {
-    let direction = 'ascending';
-    if (sortConfig.key === key && sortConfig.direction === 'ascending') {
-      direction = 'descending';
+    let direction = "ascending";
+    if (sortConfig.key === key && sortConfig.direction === "ascending") {
+      direction = "descending";
     }
     setSortConfig({ key, direction });
   };
 
-  // Handle Pagination
-  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
-
-  // Handle Items Per Page Selection
-  const handleItemsPerPageChange = (e) => {
-    setItemsPerPage(Number(e.target.value));
-    setCurrentPage(1);  // Reset to the first page
-  };
-
-  // Handle Page Click
-  const handlePageClick = (page) => {
-    setCurrentPage(page);
+  // Status Badge Color Mapping
+  const getStatusBadge = (status) => {
+    const colors = {
+      Pending: "warning",
+      Completed: "success",
+      Rejected: "danger",
+    };
+    return <span className={`badge bg-${colors[status] || "secondary"}`}>{status}</span>;
   };
 
   return (
     <>
-    <Row>
-      <Col md={6}>
-        {/* Per Page Selection */}
-        <div className="dataTablesLength">
-          <Form.Label className="mb-0">
+      <Row className="mb-3">
+        <Col md={6}>
+          <Form.Label>
             Show
-            <Form.Select 
-              size="sm" 
-              value={itemsPerPage} 
-              onChange={handleItemsPerPageChange}
-            >
-                <option value="1">10</option>
-                <option value="1">25</option>
-                <option value="2">50</option>
-                <option value="3">100</option>
+            <Form.Select size="sm" value={itemsPerPage} onChange={(e) => setItemsPerPage(Number(e.target.value))}>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="25">25</option>
             </Form.Select>
             Entries
           </Form.Label>
-        </div>
-      </Col>
-      <Col md={6} className="d-flex justify-content-center justify-content-md-end ">
-      {/* Filter Input */}
-        <div className="dataTablesFilter">
-          <Form.Label className="mb-0">
+        </Col>
+        <Col md={6} className="text-md-end">
+          <Form.Label>
             Search:
-            <Form.Control 
+            <Form.Control
               size="sm"
-              type="text" 
-              placeholder="Search by Shop Name..."
+              type="text"
+              placeholder={`Search by ${columns[0].label}...`}
               value={filterText}
-              onChange={(e) => setFilterText(e.target.value)} />
-            </Form.Label>
-        </div>
-      </Col>
-    </Row>
-    <div className="table-responsive">
-      {/* Table */}
-      <table className="table dataTableBody tableHover custom-badge mb-0">
-        <thead>
-          <tr>
-            <th onClick={() => handleSort('id')}>
-              Sl No.
-              <FeatherIcon
-                icon={sortConfig.key === 'id' ? (sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down') : 'arrow-up'}
-                size={16}
-              />
-            </th>
-            <th onClick={() => handleSort('shopCode')}>
-              Shop Code
-              <FeatherIcon
-                icon={sortConfig.key === 'shopCode' ? (sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down') : 'arrow-up'}
-                size={16}
-              />
-            </th>
-            <th onClick={() => handleSort('ownerName')}>
-              Owner Name
-              <FeatherIcon
-                icon={sortConfig.key === 'ownerName' ? (sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down') : 'arrow-up'}
-                size={16}
-              />
-            </th>
-            <th onClick={() => handleSort('shopName')}>
-              Shop Name
-              <FeatherIcon
-                icon={sortConfig.key === 'shopName' ? (sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down') : 'arrow-up'}
-                size={16}
-              />
-            </th>
-            <th onClick={() => handleSort('price')}>
-              Price
-              <FeatherIcon
-                icon={sortConfig.key === 'price' ? (sortConfig.direction === 'ascending' ? 'arrow-up' : 'arrow-down') : 'arrow-up'}
-                size={16}
-              />
-            </th>
-            <th>Status</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {currentItems.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.shopCode}</td>
-              <td>{item.ownerName}</td>
-              <td>{item.shopName}</td>
-              <td>{`₹${item.price.toFixed(2)}`}</td>
-              <td>
-                <span className={`badge ${getStatusClass(item.status)}`}>
-                  {item.status}
-                </span>
-              </td>
-              <td>
-              {item.status === "Pending" && (
-                <a href="#" className="text-primary me-2">
-                <FeatherIcon icon="file-text" size={18} />
-              </a>
-            )}
-            {item.status === "Rejected" && (
-                  <>
-                    <a href="#" className="text-warning me-2">
-                      <FeatherIcon icon="file-text" size={18} />
-                    </a>
-                    <button
-                      className="btn btn-sm btn-danger"
-                      onClick={handleShow}
-                    >
-                      <FeatherIcon icon="trash" size={16} /> Delete
-                    </button>
-                  </>
-                )}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-    <Row className="align-items-center">
-      <Col md={6}>
-        <div className="dataTablesInfo">Showing 1 to 10 of 100 entries</div>
-      </Col>
-      <Col md={6}>
-        <div className="dataTablesPaginate">
-          {/* Pagination with Custom Button Style */}
-            <ul className="paginationList">
-              <li className={`paginateButton previousItem ${currentPage === 1 ? "disabled" : ""}`}>
-                <a className="pageLink" onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}>
-                  <FeatherIcon icon="chevron-left" size={16} />
-                </a>
-              </li>
+              onChange={(e) => setFilterText(e.target.value)}
+            />
+          </Form.Label>
+        </Col>
+      </Row>
 
-              {[...Array(totalPages).keys()].map((pageNum) => (
-                <li key={pageNum + 1} className={`paginateButton ${currentPage === pageNum + 1 ? "active" : ""}`}>
-                  <a className="pageLink" onClick={() => setCurrentPage(pageNum + 1)}>
-                    {pageNum + 1}
-                  </a>
-                </li>
+      <div className="table-responsive">
+        <table className="table table-hover">
+          <thead>
+            <tr>
+              {columns.map((col) => (
+                <th key={col.key} onClick={() => handleSort(col.key)}>
+                  {col.label}
+                  <FeatherIcon
+                    icon={sortConfig.key === col.key ? (sortConfig.direction === "ascending" ? "arrow-up" : "arrow-down") : "arrow-up"}
+                    size={16}
+                    className="ms-1"
+                  />
+                </th>
               ))}
+              <th>Actions</th> {/* Actions Column */}
+            </tr>
+          </thead>
+          <tbody>
+            {currentItems.length > 0 ? (
+              currentItems.map((item, index) => (
+                <tr key={index}>
+                  {columns.map((col) => (
+                    <td key={col.key}>
+                      {col.key === "status" ? getStatusBadge(item[col.key]) : item[col.key]}
+                    </td>
+                  ))}
+                  <td>
+                    <div>
+                      <Button
+                        variant="primary"
+                        size="sm"
+                        className="me-2"
+                        onClick={() => onEdit(item)} // Pass the item for edit
+                      >
+                        <FeatherIcon icon="edit" size={14} /> Edit
+                      </Button>
+                      <Button
+                        variant="danger"
+                        size="sm"
+                        onClick={() => onDelete(item)} // Pass the item for delete
+                      >
+                        <FeatherIcon icon="trash-2" size={14} /> Delete
+                      </Button>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan={columns.length + 1} className="text-center">
+                  No Data Available
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
 
-
-              <li className={`paginateButton nextItem ${currentPage === totalPages ? "disabled" : ""}`}>
-                <a className="pageLink" onClick={() => currentPage < totalPages && setCurrentPage(currentPage + 1)}>
-                  <FeatherIcon icon="chevron-right" size={16} />
-                </a>
+      <Row className="align-items-center">
+        <Col md={6}>Showing {indexOfFirstItem + 1} to {Math.min(indexOfLastItem, filteredData.length)} of {filteredData.length} entries</Col>
+        <Col md={6} className="text-md-end">
+          <ul className="pagination">
+            <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
+              <button className="page-link" onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}>
+                <FeatherIcon icon="chevron-left" size={16} />
+              </button>
+            </li>
+            {[...Array(totalPages).keys()].map((page) => (
+              <li key={page + 1} className={`page-item ${currentPage === page + 1 ? "active" : ""}`}>
+                <button className="page-link" onClick={() => setCurrentPage(page + 1)}>{page + 1}</button>
               </li>
-            </ul>
-        </div>
-      </Col>
-    </Row>
-    
+            ))}
+            <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
+              <button className="page-link" onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}>
+                <FeatherIcon icon="chevron-right" size={16} />
+              </button>
+            </li>
+          </ul>
+        </Col>
+      </Row>
 
+ 
 
-  <AlertPopup
-        title="Delete Modal"
-        description="Are you sure you want to delete this item?"
-        confirmbtnText="Yes Delete"
-        closeBtnText="No! Cancel For Now"
-        show={show}
-        handleClose={handleClose}
-        variant="danger"
-      />
-
-  </>
+    </>
   );
 }

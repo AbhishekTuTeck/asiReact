@@ -122,10 +122,10 @@ function TopBar() {
                 <h6 className="text-overflow m-0 fw-bold">Id : PSDAD.HQ.001</h6>
               </div>
               <div className="dropdown-divider mt-1" />
-              <a href="auth-logout.html" className="dropdown-item notify-item text-center">
+              <Link to="/" className="dropdown-item notify-item text-center">
                 <i className="mdi mdi-location-exit fs-16 align-middle" />
                 <span>Logout</span>
-              </a>
+              </Link>
             </Dropdown.Menu>
           </Dropdown>
         </ul>
