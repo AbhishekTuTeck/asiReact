@@ -7,9 +7,45 @@ import ToastComponent from "../../components/toast/ToastContainer";
 import DataTableComponent from "../../components/datatable/DataTableComponent"; 
 import { useDispatch } from 'react-redux';
 import { showToast } from '../../redux/toast-slice/toastSlice';
+import Modal from 'react-bootstrap/Modal';
+import AlertPopup from "../../components/alertpopup/AlertPopup";
+
+const employeeColumns = [
+  { key: "id", label: "ID" },
+  { key: "name", label: "Employee Name" },
+  { key: "department", label: "Department" },
+  { key: "salary", label: "Salary" },
+  { key: "status", label: "Status" },
+];
+
+const employeeData = [
+  { 
+    id: 1, 
+    name: "Alice Brown", 
+    department: "HR", 
+    salary: "₹50,000" ,
+    status: "Pending"
+  },
+  { 
+    id: 2, 
+    name: "Bob Williams", 
+    department: "IT", 
+    salary: "₹80,000",
+    status: "Completed"
+  },
+  { 
+    id: 3, 
+    name: "Charlie Davis", 
+    department: "Marketing", 
+    salary: "₹60,000",
+    status: "Rejected"
+  },
+];
 
 export default function CompileScheduleList() {
   const [loading, setLoading] = useState(false);
+  const [show, setShow] = useState(false); // Modal visibility state
+  const [selectedRow, setSelectedRow] = useState(null); // Store the row to be deleted
   const dispatch = useDispatch();
 
   const handleSearchClick = () => {
@@ -27,9 +63,32 @@ export default function CompileScheduleList() {
     }, 3000);
   };
 
+  const handleEdit = (row) => {
+    console.log("Edit:", row);
+  };
+
+  // Open delete confirmation modal
+  const handleDelete = (row) => {
+    setSelectedRow(row); // Store the row to be deleted
+    setShow(true); // Show the modal
+  };
+
+  // Close the modal without deleting
+  const handleClose = () => {
+    setShow(false);
+    setSelectedRow(null); // Clear the selected row
+  };
+
+  // Confirm deletion
+  const handleConfirmDelete = () => {
+    console.log("Delete:", selectedRow);
+    setShow(false); // Close the modal
+    setSelectedRow(null); // Clear the selected row
+    dispatch(showToast({ message: "Item deleted successfully!", variant: "success" }));
+  };
+
   return (
     <>
-    
       {/* <ToastComponent /> */}
 
       <Breadcrumb title="Compile Schedule" />
@@ -102,9 +161,26 @@ export default function CompileScheduleList() {
           <Card.Title className='mb-0'>Compile Schedule</Card.Title>
         </Card.Header>
         <Card.Body className='p-0 siteCustomDatatable'>
-          <DataTableComponent />
+          <DataTableComponent 
+            columns={employeeColumns} 
+            data={employeeData} 
+            onEdit={handleEdit} 
+            onDelete={handleDelete} 
+          />
         </Card.Body>
       </Card>
+
+      {/* Alert Modal for Delete Confirmation */}
+      <AlertPopup
+        title="Delete Modal"
+        description="Are you sure you want to delete this item?"
+        confirmbtnText="Yes Delete"
+        closeBtnText="No! Cancel For Now"
+        show={show}
+        handleClose={handleClose}
+        variant="danger"
+        onConfirm={handleConfirmDelete} // Pass the delete action to the modal
+      />
     </>
   );
 }
