@@ -278,10 +278,11 @@ body {
   background-attachment: fixed;
 }
 body.login-page{
-  background-image:url('../images/loginpagebg.png');
+  background-image: inherit;
+  /* background-image:url('../images/loginpagebg.png');
   background-position: 
     top right;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 .bg-3-container{
   background-image: 
