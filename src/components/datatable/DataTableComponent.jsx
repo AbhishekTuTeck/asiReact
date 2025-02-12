@@ -170,9 +170,6 @@ export default function DataTableComponent({ columns, data, onEdit, onDelete }) 
           </div>    
         </Col>
       </Row>
-
- 
-
-    </>
+  </>
   );
 }
