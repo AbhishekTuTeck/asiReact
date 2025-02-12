@@ -134,7 +134,7 @@ export default function CompileScheduleList() {
                     className="d-flex align-items-center"
                     onClick={handleSearchClick}
                   >
-                    <FeatherIcon icon="search" /> Search
+                    <FeatherIcon icon="search" className='me-1' /> Search
                   </Button>
                 ) : (
                   <Button variant="primary" disabled size="sm">
