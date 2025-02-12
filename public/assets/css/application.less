@@ -958,9 +958,9 @@ ul.top-menu {
   border: 1px solid #EDEDED !important;
   backdrop-filter: blur(20px) !important;
 }
-/*Anjali :- Compiler Schedule gen info page*/
+/*Compiler Schedule gen info page*/
 .backLink{
-  color:@color_3;
+  color:@color5;
   .backLinktext{
     color:@color3;
   } 
@@ -988,21 +988,18 @@ ul.top-menu {
   .btn{
     padding-left: 20px;
   }
- 
-.custom-outline-primary{
-  background-color:@color_2!important;
-  &:hover{
-    background-color: darken(@color_2,5%)!important;
-    color: @SiteBlue5!important;
+  .custom-outline-primary{
+    background-color:@color_2!important;
+    &:hover{
+      background-color: darken(@color_2,5%)!important;
+      color: @SiteBlue5!important;
+    }
   }
 }
-}
-
-
 label{
   .customSerialNo{
     color: @SiteBlue5;
-    background-color: #C4D9FF;
+    background-color:@background_color_6;
     border-radius: 2px;
     padding: 4px 8px;
     margin-right: 5px;
@@ -1014,6 +1011,9 @@ label{
     color: @SiteBlue6;
     font-weight:700;
     font-size:20px;
+    @media screen and (max-width: 774px) {
+      font-size:15px;
+    }
   }
   .selectBlock{
     .form-select{
@@ -1021,14 +1021,16 @@ label{
       @media screen and (max-width: 774px) {
         width:150px;
       }
+      @media screen and (max-width: 500px) {
+        width:100px;
+      }
     }
-  }
-  
+  } 
+}
+.form-label{
+  color:@color4!important;
 }
 .cardBlockA,.cardBlockB,.remarkCard{
- .form-label{
-    color:@color4!important;
-  }
   .largeFormControl{
     height: 211px;
   }
@@ -1047,10 +1049,47 @@ label{
     padding-left: 26.4px;
   }
   .customInnercard{
-    background-color: @background-color_5;
+    background-color: @background_color_5;
 
   }
   .customRemarksfc{
-    height:172px;
+    height:147px;
+  }
+}
+/*fixed assets data page*/
+.fixedAssets{
+  .customRemarksfc{
+    height:124px;
+  }
+  .radioSheetmode{
+    label{
+      color:black;
+      font-weight:300;
+    }
+  }
+}
+.customCardBlocks{
+  &-header{
+    font-size:16px;
+    font-weight:500;
+  }
+}
+.custom-alert{
+  &-danger{
+    background-color:@background_warning_color!important;
+    border-color: @warningColor2!important;
+    color: @warningColor2!important;
+    .feather-alert-triangle{
+      width:37.58px;
+      height:30.88px;
+    }
+    .custom-alert-title{
+      font-size: 16px;
+      font-weight:700;
+    }
+    .custom-alert-text{
+      font-size:14px;
+      padding-left: 53.7px;
+    }
   }
 }
