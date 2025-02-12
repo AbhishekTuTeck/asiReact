@@ -114,15 +114,15 @@ export default function DataTableComponent({ columns, data, onEdit, onDelete }) 
                     </td>
                   ))}
                   <td>
-                    <div>
-                      <Link
-                        className="me-3 text-muted"
-                        onClick={() => onEdit(item)} // Pass the item for edit
+                    <div className="d-flex align-items-center">
+                      <Link to="compile-schedule-generalinfo"
+                        className="me-3 d-flex align-items-center text-primary"
+                        //onClick={() => onEdit(item)} // Pass the item for edit
                       >
-                        <FeatherIcon icon="edit" size={18} />
+                        <FeatherIcon icon="grid" size={18} className="me-1" />Compile 
                       </Link>
-                      <Link
-                        className="text-muted"
+                      <Link to=""
+                        className="text-danger"
                         onClick={() => onDelete(item)} // Pass the item for delete
                       >
                         <FeatherIcon icon="trash-2" size={18} />
@@ -170,9 +170,6 @@ export default function DataTableComponent({ columns, data, onEdit, onDelete }) 
           </div>    
         </Col>
       </Row>
-
- 
-
-    </>
+  </>
   );
 }

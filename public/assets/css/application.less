@@ -16,7 +16,10 @@ a {
 h6 {
     font-size: 0.875rem !important;
 }
-
+.btn-success{
+  background-color: @successColor3 !important;
+  border-color: @successColor3 !important;
+}
 .showpassBtn{
   background-color: @baseColor !important;
   border: 1px solid #dee2e6 !important;
@@ -1070,3 +1073,90 @@ label{
     height:172px;
   }
 }
+
+// Custom Popup Modal
+.popupCustomModal{
+  .modal-content{
+    border-radius: 15px;
+    .modal-header{
+      border-bottom: none;
+    }
+    .modal-body{
+      .outerSuccessCircle{
+        width: 100px;
+        height: 100px;
+        background-color: @successColor4; /* Light green outer circle */
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin: 0 auto 15px auto;
+        .innerSuccessCircle{
+            width: 60px;
+            height: 60px;
+            background-color: @successColor3; /* Green inner circle */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            i{
+              font-size: 36px;
+              line-height: 40px;
+              color: @baseColor;
+            }
+        }
+      }
+    }
+    .modal-footer{
+      border-top: none;
+      justify-content: center;
+    }
+  }
+}
+
+#sidebar-menu #side-menu.block-list-ul{
+  li{
+    margin: 8px 0;
+    a{
+      color: @color5;
+      font-size: 14px;
+      padding: 12px 9px;
+      &:hover{
+        background-color: #dbe8ff;
+        color: @SiteBlue6;
+        border-radius: 4px;
+      }
+      &.active{
+        background-color: #dbe8ff;
+        color: @SiteBlue6;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+
+#sidebar-menu #side-menu.block-list-ul{
+  li{
+    margin: 8px 0;
+    a{
+      color: @color5;
+      font-size: 14px;
+      padding: 12px 9px;
+      i.text-success{
+        color: rgb(83, 198, 145) !important;
+      }
+      &:hover{
+        background-color: #dbe8ff;
+        color: @SiteBlue6;
+        border-radius: 4px;
+      }
+      &.active{
+        background-color: #dbe8ff;
+        color: @SiteBlue6;
+        border-radius: 4px;
+      }
+    }
+  }
+}
+ 
