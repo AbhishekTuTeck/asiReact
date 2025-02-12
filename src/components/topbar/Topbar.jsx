@@ -19,8 +19,8 @@ function TopBar() {
   };
 
   useEffect(() => {
-    // document.body.setAttribute("data-sidebar", isSidebarHidden ? "hidden" : "visible"); //Sidebar on
-    document.body.setAttribute("data-sidebar", isSidebarHidden ? "hidden" : "hidden");
+    document.body.setAttribute("data-sidebar", isSidebarHidden ? "hidden" : "visible"); //Sidebar on
+    // document.body.setAttribute("data-sidebar", isSidebarHidden ? "hidden" : "hidden"); //Sidebar Off
   }, [isSidebarHidden]);
 
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -41,11 +41,11 @@ function TopBar() {
     <div className="container-fluid">
       <div className="d-flex justify-content-between">
         <ul className="list-unstyled topnav-menu mb-0 d-flex align-items-center">
-          {/* <li>
+          <li>
             <button className="button-toggle-menu nav-link" onClick={toggleSidebar}>
               <FeatherIcon icon="menu" className="noti-icon" />
             </button>
-          </li> */}
+          </li>
           <li className="d-flex align-items-center">
              <img src={sitensso75Logo} alt="Logo" className="border-end pe-4 me-3"/>
              <h5 className="fs-24 fw-bold">ASI</h5>
