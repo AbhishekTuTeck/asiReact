@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import FeatherIcon from "feather-icons-react";
 import { Row, Col, Form, Button } from "react-bootstrap";
-
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 export default function DataTableComponent({ columns, data, onEdit, onDelete }) {
 
@@ -52,39 +52,43 @@ export default function DataTableComponent({ columns, data, onEdit, onDelete }) 
       Completed: "success",
       Rejected: "danger",
     };
-    return <span className={`badge bg-${colors[status] || "secondary"}`}>{status}</span>;
+    return <span className={`badge badge-outline badge-${colors[status] || "secondary"}`}>{status}</span>;
   };
 
   return (
     <>
-      <Row className="mb-3">
+      <Row>
         <Col md={6}>
-          <Form.Label>
-            Show
-            <Form.Select size="sm" value={itemsPerPage} onChange={(e) => setItemsPerPage(Number(e.target.value))}>
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="25">25</option>
-            </Form.Select>
-            Entries
-          </Form.Label>
+          <div className="dataTablesLength">
+            <Form.Label>
+              Show
+              <Form.Select size="sm" value={itemsPerPage} onChange={(e) => setItemsPerPage(Number(e.target.value))}>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="25">25</option>
+              </Form.Select>
+              Entries
+            </Form.Label>
+          </div>
         </Col>
         <Col md={6} className="text-md-end">
-          <Form.Label>
-            Search:
-            <Form.Control
-              size="sm"
-              type="text"
-              placeholder={`Search by ${columns[0].label}...`}
-              value={filterText}
-              onChange={(e) => setFilterText(e.target.value)}
-            />
-          </Form.Label>
+          <div className="dataTablesFilter">
+            <Form.Label>
+              Search:
+              <Form.Control
+                size="sm"
+                type="text"
+                placeholder={`Search by ${columns[0].label}...`}
+                value={filterText}
+                onChange={(e) => setFilterText(e.target.value)}
+              />
+            </Form.Label>
+          </div>
         </Col>
       </Row>
 
       <div className="table-responsive">
-        <table className="table table-hover">
+        <table className="table dataTableBody tableHover custom-badge mb-0">
           <thead>
             <tr>
               {columns.map((col) => (
@@ -110,22 +114,19 @@ export default function DataTableComponent({ columns, data, onEdit, onDelete }) 
                     </td>
                   ))}
                   <td>
-                    <div>
-                      <Button
-                        variant="primary"
-                        size="sm"
-                        className="me-2"
-                        onClick={() => onEdit(item)} // Pass the item for edit
+                    <div className="d-flex align-items-center">
+                      <Link to="compile-schedule-generalinfo"
+                        className="me-3 d-flex align-items-center text-primary"
+                        //onClick={() => onEdit(item)} // Pass the item for edit
                       >
-                        <FeatherIcon icon="edit" size={14} /> Edit
-                      </Button>
-                      <Button
-                        variant="danger"
-                        size="sm"
+                        <FeatherIcon icon="grid" size={18} className="me-1" />Compile 
+                      </Link>
+                      <Link to=""
+                        className="text-danger"
                         onClick={() => onDelete(item)} // Pass the item for delete
                       >
-                        <FeatherIcon icon="trash-2" size={14} /> Delete
-                      </Button>
+                        <FeatherIcon icon="trash-2" size={18} />
+                      </Link>
                     </div>
                   </td>
                 </tr>
@@ -142,30 +143,33 @@ export default function DataTableComponent({ columns, data, onEdit, onDelete }) 
       </div>
 
       <Row className="align-items-center">
-        <Col md={6}>Showing {indexOfFirstItem + 1} to {Math.min(indexOfLastItem, filteredData.length)} of {filteredData.length} entries</Col>
-        <Col md={6} className="text-md-end">
-          <ul className="pagination">
-            <li className={`page-item ${currentPage === 1 ? "disabled" : ""}`}>
-              <button className="page-link" onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}>
-                <FeatherIcon icon="chevron-left" size={16} />
-              </button>
-            </li>
-            {[...Array(totalPages).keys()].map((page) => (
-              <li key={page + 1} className={`page-item ${currentPage === page + 1 ? "active" : ""}`}>
-                <button className="page-link" onClick={() => setCurrentPage(page + 1)}>{page + 1}</button>
+        <Col md={6}>
+          <div className="dataTablesInfo">
+            Showing {indexOfFirstItem + 1} to {Math.min(indexOfLastItem, filteredData.length)} of {filteredData.length} entries
+          </div>
+        </Col>
+        <Col md={6}>
+          <div className="dataTablesPaginate">
+            <ul className="paginationList">
+              <li className={`paginateButton previousItem ${currentPage === 1 ? "disabled" : ""}`}>
+                <button className="pageLink" onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}>
+                  <FeatherIcon icon="chevron-left" size={16} />
+                </button>
               </li>
-            ))}
-            <li className={`page-item ${currentPage === totalPages ? "disabled" : ""}`}>
-              <button className="page-link" onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}>
-                <FeatherIcon icon="chevron-right" size={16} />
-              </button>
-            </li>
-          </ul>
+              {[...Array(totalPages).keys()].map((page) => (
+                <li key={page + 1} className={`paginateButton ${currentPage === page + 1 ? "active" : ""}`}>
+                  <button className="pageLink" onClick={() => setCurrentPage(page + 1)}>{page + 1}</button>
+                </li>
+              ))}
+              <li className={`paginateButton nextItem ${currentPage === totalPages ? "disabled" : ""}`}>
+                <button className="pageLink" onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}>
+                  <FeatherIcon icon="chevron-right" size={16} />
+                </button>
+              </li>
+            </ul>
+          </div>    
         </Col>
       </Row>
-
- 
-
-    </>
+  </>
   );
 }

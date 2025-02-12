@@ -15,28 +15,62 @@ function AlertPopup({ title, desription, confirmbtnText, closeBtnText, show, han
       keyboard={false}
       aria-labelledby="contained-modal-title-vcenter"
       centered
-      className={isDanger ? "alert-danger-popup" : "alert-success-popup"}
+      className={isDanger ? "alert-danger-popup popupCustomModal" : "alert-success-popup popupCustomModal"}
     >
-      <Modal.Header closeButton>
-        <Modal.Title>{title}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>{desription}</Modal.Body>
+      <Modal.Header closeButton></Modal.Header>
+      <Modal.Body className="text-center pt-0">
+        <>
+        {isDanger ? (
+          <div className="deleteCircle">
+            <div className="innerCircle">
+              <FeatherIcon icon="trash-2" />
+            </div>
+          </div>
+        ) : (
+          <div className="outerSuccessCircle">
+            <div className="innerSuccessCircle">
+              <i class="bi bi-check-lg"></i>
+            </div>
+          </div>
+        )}
+        <h4>{title}</h4>
+        <p className="m-0">{desription}</p>
+        </>
+      </Modal.Body>
       {isDanger ? (
-      <Modal.Footer>
-        <Button variant="danger" onClick={handleClose} >
-          {confirmbtnText}
-        </Button> <Button variant="link" onClick={handleClose}>
-          {closeBtnText}
-        </Button>
-      </Modal.Footer>
+        <Modal.Footer>
+          <div className="d-grid gap-2">
+            <Button 
+              variant="danger" 
+              onClick={handleClose}
+            >
+              {confirmbtnText}
+            </Button>
+            <Button 
+              variant="link" 
+              onClick={handleClose}
+            >
+              {closeBtnText}
+            </Button>
+          </div>
+        </Modal.Footer>
       ) : (
         <Modal.Footer>
-        <Button variant="success" onClick={handleClose} >
-          {confirmbtnText}
-        </Button> <Button variant="link" onClick={handleClose}>
-          {closeBtnText}
-        </Button>
-      </Modal.Footer>
+          <div className="d-grid gap-2">
+            <Button 
+              variant="success" 
+              onClick={handleClose} 
+            >
+              {confirmbtnText} <i class="bi bi-arrow-right ms-1"></i>
+            </Button> 
+            <Button 
+              variant="link" 
+              onClick={handleClose}
+            >
+              {closeBtnText}
+            </Button>
+          </div>
+        </Modal.Footer>
       )}
     </Modal>
   );
