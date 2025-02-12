@@ -11,6 +11,18 @@ import CompileScheduleList from '../pages/CompileSchedule/CompileScheduleList';
 import CompileScheduleGeneralInfo from '../pages/CompileSchedule/CompileScheduleGeneralInfo';
 import FixedAssetsData from '../pages/CompileSchedule/FixedAssetsData';
 import ProfitLossAccount from '../pages/CompileSchedule/ProfitLossAccount';
+import CheckList from '../pages/CompileSchedule/CheckList';
+import BalanceSheet from '../pages/CompileSchedule/BalanceSheet';
+import BlockEBlock2 from '../pages/CompileSchedule/BlockEBlock2';
+import BlockI from '../pages/CompileSchedule/BlockI';
+import BlockH from '../pages/CompileSchedule/BlockH';
+import BlockJ from '../pages/CompileSchedule/BlockJ';
+import Blockk from '../pages/CompileSchedule/Blockk';
+import BlockE from '../pages/CompileSchedule/BlockE';
+import BlockFBlockG from '../pages/CompileSchedule/BlockFBlockG';
+import PartA1 from '../pages/CompileSchedule/PartA1';
+import PartA2 from '../pages/CompileSchedule/PartA2';
+import Block2LabourBureau from '../pages/CompileSchedule/Block2LabourBureau';
 
 function PublicRoutes() {
   const router = createBrowserRouter([
@@ -47,6 +59,54 @@ function PublicRoutes() {
         {
           path: 'compile-schedule/profit-loss-account',
           element: <ProfitLossAccount />,
+        },
+        {
+          path: 'compile-schedule/balance-sheet',
+          element: <BalanceSheet/>,
+        }, 
+        {
+          path: 'compile-schedule/block-e',
+          element: <BlockE/>,
+        },
+        {
+          path: 'compile-schedule/block-e-block2',
+          element: <BlockEBlock2/>,
+        },
+        {
+          path: 'compile-schedule/block-h',
+          element: <BlockH/>,
+        },
+        {
+          path: 'compile-schedule/block-i',
+          element: <BlockI/>,
+        },
+        {
+          path: 'compile-schedule/block-j',
+          element: <BlockJ/>,
+        },
+        {
+          path: 'compile-schedule/block-k',
+          element: <Blockk/>,
+        },
+        {
+          path: 'compile-schedule/block-F-Block-G',
+          element: <BlockFBlockG/>,
+        },
+        {
+          path: 'compile-schedule/part-a-1',
+          element: <PartA1/>,
+        },
+        {
+          path: 'compile-schedule/part-a-2',
+          element: <PartA2/>,
+        },
+        {
+          path: 'compile-schedule/block-2-labour-bureau',
+          element: <Block2LabourBureau/>,
+        },
+        {
+          path: 'compile-schedule/check-list',
+          element: <CheckList/>,
         },
       ],
     },
