@@ -48,10 +48,10 @@ function TopBar() {
           </li>
           <li className="d-flex align-items-center">
              <img src={sitensso75Logo} alt="Logo" className="border-end pe-4 me-3"/>
-             <h5 className="fs-24 fw-bold">ASI</h5>
+             {/* <h5 className="fs-24 fw-bold">ASI</h5> */}
           </li>
         </ul>
-        <ul className="top-menu">
+        {/* <ul className="top-menu">
           <li>
           <Link to="/nsso-secured/CompileSchedule">
                 <FeatherIcon icon="home" />
@@ -64,7 +64,7 @@ function TopBar() {
                 <span>Compile Schedule</span>
               </Link>
           </li>
-        </ul>
+        </ul> */}
         <ul className="list-unstyled topnav-menu mb-0 d-flex align-items-center">
           {/* Fullscreen Button */}
           <li className="d-none d-sm-flex">
