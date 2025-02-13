@@ -14,7 +14,7 @@ import Table from 'react-bootstrap/Table';
 export default function FixedAssetsData() {
   return (
     <>
-      <Breadcrumb title="FixedAssetsData" />
+      <Breadcrumb title="Fixed Assets Data" />
       <div className='fixedAssets'>
         <div className="d-flex align-items-center my-2">
           <Link href='#' className='backLink d-flex align-items-center'><FeatherIcon icon="chevron-left" /><span className='backLinktext'>Back to List</span></Link>
@@ -26,29 +26,39 @@ export default function FixedAssetsData() {
             <Button variant="btn btn-outline-primary" className='custom-outline-primary d-flex align-items-center'>Last<FeatherIcon icon="chevrons-right" /></Button>
           </div>
         </div>
-        <Card className='asiSchedule genInfo rounded-4'>
+        <Card className='asiSchedule rounded-4'>
           <Card.Header className='asiScheduleHeader d-flex align-items-center'>ASI Schedule 2020-21 -  <span className='text-danger d-flex align-items-center ms-1'><span className='me-1'>  CONFIDENTIAL </span> <FeatherIcon icon="lock" /></span></Card.Header>
-          <Card.Header className='geninfoTitle d-flex justify-content-between align-items-center py-2'>
-            Fixed Assets Data for <span className='text-dark ms-1'> Block C</span>
-            <div className='ms-auto'>
-              <InputGroup className="selectBlock" size="sm" controlId="">
-                <Form.Select size='sm'>
-                  <option>Select Block</option>
-                  <option>Fixed Assets</option>
-                  <option>Balance Sheet</option>
-                  <option>Profit & Loss Account</option>
-                  <option>Block-E/Part 2(Labour Bureau)</option>
-                  <option>Block H</option>
-                  <option>Block I</option>
-                  <option>Block J</option>
-                  <option>Block KL</option>
-                  <option>Block A1</option>
-                  <option>Block A2</option>
-                  <option>Check List</option>
-                </Form.Select>
-                <InputGroup.Text id="" className='bg-dark'><span className='text-light'><FeatherIcon icon="search" /></span></InputGroup.Text>
-              </InputGroup>
-            </div>
+          <Card.Header className='py-1'>
+            <Row className="d-flex align-items-center">
+              <Col md={6}>
+                <h5 className="colorDarkblue my-1">Fixed Assets Data for{" "} <span className='text-dark'> Block C</span></h5>
+              </Col>
+              <Col md={6} className="d-flex align-items-center justify-content-end">
+                <div className="ms-auto">
+                  <InputGroup size="sm" controlId="">
+                    <Form.Select size="sm">
+                      <option>Select Block</option>
+                      <option>Fixed Assets</option>
+                      <option>Balance Sheet</option>
+                      <option>Profit & Loss Account</option>
+                      <option>Block-E/Part 2(Labour Bureau)</option>
+                      <option>Block H</option>
+                      <option>Block I</option>
+                      <option>Block J</option>
+                      <option>Block KL</option>
+                      <option>Block A1</option>
+                      <option>Block A2</option>
+                      <option>Check List</option>
+                    </Form.Select>
+                    <InputGroup.Text id="" className="bg-dark">
+                      <span className="text-light">
+                        <FeatherIcon icon="search" />
+                      </span>
+                    </InputGroup.Text>
+                  </InputGroup>
+                </div>
+              </Col>
+            </Row>
           </Card.Header>
           <Card.Body>
             <Row>
@@ -73,7 +83,6 @@ export default function FixedAssetsData() {
                         inline
                         label="Net Block"
                         name="group1"
-                        className='me-5'
                         type={type}
                         id={`inline-${type}-1`}
                         defaultChecked
@@ -82,7 +91,6 @@ export default function FixedAssetsData() {
                         inline
                         label="Gross Block"
                         name="group1"
-                        className='me-5'
                         type={type}
                         id={`inline-${type}-2`}
                       />
@@ -93,8 +101,8 @@ export default function FixedAssetsData() {
             </Row>
           </Card.Body>
         </Card>
-        <Card className='customCardBlocks rounded-4'>
-          <Card.Header className='customCardBlocks-header d-flex justify-content-between align-items-center py-2'>Block C Fixed Assets List
+        <Card className=' rounded-4'>
+          <Card.Header className='d-flex justify-content-between align-items-center py-2'>Block C Fixed Assets List
             <div className="card-tool">
               <Button variant='btn btn-sm btn-primary d-flex align-items-center'><FeatherIcon icon="plus" />Add</Button>
             </div>
@@ -346,8 +354,8 @@ export default function FixedAssetsData() {
         </Card>
         <Row>
           <Col>
-            <Card className='remarkCard rounded-4'>
-              <Card.Header className='customCardheader'>Remarks</Card.Header>
+            <Card className='rounded-4'>
+              <Card.Header>Remarks</Card.Header>
               <Card.Body>
                 <Form.Group>
                   <Form.Control placeholder='Enter Remarks...' as="textarea" className="customRemarksfc text-muted" />

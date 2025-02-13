@@ -8,7 +8,6 @@ import { Button, Spinner } from "react-bootstrap";
 import DataTableComponent from "../../components/datatable/DataTableComponent"; // Adjust the path as needed
 import Breadcrumb from "../../components/breadcrumb/Breadcrumb"; // Adjust the path as needed
 import SideBar from "../../components/sidebar/Sidebar";
-import Stack from "react-bootstrap/Stack";
 import FeatherIcon from "feather-icons-react";
 import { Link } from "react-router-dom";
 
@@ -82,7 +81,7 @@ export default function CompileScheduleGeneralInfo() {
           </Link>
         </div>
       </div>
-      <Card className="asiSchedule">
+      <Card className="asiSchedule rounded-4">
         <Card.Header className="asiScheduleHeader d-flex align-items-center">
           ASI Schedule 2020-21 -{" "}
           <span className="text-danger d-flex align-items-center ms-1">
@@ -116,36 +115,40 @@ export default function CompileScheduleGeneralInfo() {
           </Form>
         </Card.Body>
       </Card>
-      <div className="genInfo d-flex justify-content-between align-items-center mb-1">
-        <p className="geninfoTitle">General Information</p>
-        <div className="ms-auto">
-          <InputGroup className="selectBlock mb-3" size="sm" controlId="">
-            <Form.Select size="sm">
-              <option>Select Block</option>
-              <option>Fixed Assets</option>
-              <option>Balance Sheet</option>
-              <option>Profit & Loss Account</option>
-              <option>Block-E/Part 2(Labour Bureau)</option>
-              <option>Block H</option>
-              <option>Block I</option>
-              <option>Block J</option>
-              <option>Block KL</option>
-              <option>Block A1</option>
-              <option>Block A2</option>
-              <option>Check List</option>
-            </Form.Select>
-            <InputGroup.Text id="" className="bg-dark">
-              <span className="text-light">
-                <FeatherIcon icon="search" />
-              </span>
-            </InputGroup.Text>
-          </InputGroup>
-        </div>
-      </div>
+      <Row className="d-flex align-items-center mb-3">
+        <Col md={6}>
+          <h5 className="colorDarkblue">General Information </h5>
+        </Col>
+        <Col md={6} className="d-flex align-items-center justify-content-end">
+          <div className="ms-auto">
+            <InputGroup size="sm" controlId="">
+              <Form.Select size="sm">
+                <option>Select Block</option>
+                <option>Fixed Assets</option>
+                <option>Balance Sheet</option>
+                <option>Profit & Loss Account</option>
+                <option>Block-E/Part 2(Labour Bureau)</option>
+                <option>Block H</option>
+                <option>Block I</option>
+                <option>Block J</option>
+                <option>Block KL</option>
+                <option>Block A1</option>
+                <option>Block A2</option>
+                <option>Check List</option>
+              </Form.Select>
+              <InputGroup.Text id="" className="bg-dark">
+                <span className="text-light">
+                  <FeatherIcon icon="search" />
+                </span>
+              </InputGroup.Text>
+            </InputGroup>
+          </div>
+        </Col>
+      </Row>
       <Row>
         <Col md={6}>
-          <Card className="cardBlockA">
-            <Card.Header className="customCardheader">Block A</Card.Header>
+          <Card className="rounded-4">
+            <Card.Header>Block A</Card.Header>
             <Card.Body p-0>
               <Form>
                 <Row>
@@ -173,9 +176,12 @@ export default function CompileScheduleGeneralInfo() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">1</span>DSL No.
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">1</div>
+                        <Form.Label>
+                          DSL No.{" "}<span className="text-danger">*</span>
+                        </Form.Label>
+                      </div>
                       <Form.Control
                         size="sm"
                         type="text"
@@ -186,9 +192,12 @@ export default function CompileScheduleGeneralInfo() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">2</span>PSL No.
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">2</div>
+                        <Form.Label>
+                          PSL No.{" "}<span className="text-danger">*</span>
+                        </Form.Label>
+                      </div>
                       <Form.Control
                         size="sm"
                         type="text"
@@ -199,9 +208,12 @@ export default function CompileScheduleGeneralInfo() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">3</span>Scheme
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">3</div>
+                        <Form.Label>
+                          Scheme
+                        </Form.Label>
+                      </div>
                       <Form.Control
                         size="sm"
                         type="text"
@@ -212,10 +224,12 @@ export default function CompileScheduleGeneralInfo() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">4</span>Industry code
-                        as per Frame{" "}
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">4</div>
+                        <Form.Label>
+                          Industry code as per Frame
+                        </Form.Label>
+                      </div>
                       <Form.Control
                         size="sm"
                         type="text"
@@ -227,15 +241,15 @@ export default function CompileScheduleGeneralInfo() {
                       </Form.Text>
                     </Form.Group>
                   </Col>
-                </Row>
-                <Row>
                   <Col md={6}>
                     <Col>
                       <Form.Group className="mb-4" controlId="">
-                        <Form.Label className="mb-2">
-                          <span className="customSerialNo">5</span>Industry code
-                          as per Return
-                        </Form.Label>
+                        <div className="d-flex align-items-start mb-2">
+                          <div className="customSerialNo">5</div>
+                          <Form.Label>
+                            Industry code as per Return
+                          </Form.Label>
+                        </div>
                         <Form.Control
                           size="sm"
                           type="text"
@@ -248,9 +262,12 @@ export default function CompileScheduleGeneralInfo() {
                     </Col>
                     <Col>
                       <Form.Group className="mb-4" controlId="">
-                        <Form.Label className="mb-2">
-                          <span className="customSerialNo">7</span>State
-                        </Form.Label>
+                        <div className="d-flex align-items-start mb-2">
+                          <div className="customSerialNo">7</div>
+                          <Form.Label>
+                            State
+                          </Form.Label>
+                        </div>
                         <Form.Control
                           size="sm"
                           type="text"
@@ -261,9 +278,12 @@ export default function CompileScheduleGeneralInfo() {
                     </Col>
                     <Col>
                       <Form.Group className="mb-4" controlId="">
-                        <Form.Label className="mb-2">
-                          <span className="customSerialNo">8</span>District
-                        </Form.Label>
+                        <div className="d-flex align-items-start mb-2">
+                          <div className="customSerialNo">8</div>
+                          <Form.Label>
+                            District
+                          </Form.Label>
+                        </div>
                         <Form.Control
                           size="sm"
                           type="text"
@@ -275,12 +295,14 @@ export default function CompileScheduleGeneralInfo() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">6</span>Description of
-                        Industry
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">6</div>
+                        <Form.Label>
+                          Description of Industry
+                        </Form.Label>
+                      </div>
                       <Form.Control
-                        className="largeFormControl"
+                        rows={11}
                         size="sm"
                         as="textarea"
                         placeholder="Manufacture of travel goods like suitcase, bags, hold alls etc."
@@ -288,32 +310,41 @@ export default function CompileScheduleGeneralInfo() {
                       />
                     </Form.Group>
                   </Col>
-                </Row>
-                <Row>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">9</span>Sector{" "}
-                        <span className="text-danger"> *</span>
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">9</div>
+                        <Form.Label>
+                          Sector{" "}<span className="text-danger"> *</span>
+                        </Form.Label>
+                      </div>
                       <Form.Select size="sm">
                         <option>Urban</option>
                       </Form.Select>
+                      <Form.Text className="text-muted">
+                        For Next Year Frame Updation
+                      </Form.Text>
                     </Form.Group>
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">10</span>RO / SRO Code
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">10</div>
+                        <Form.Label>
+                          RO / SRO Code
+                        </Form.Label>
+                      </div>
                       <Form.Control size="sm" type="text" placeholder="RO" />
                     </Form.Group>
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">11</span>No. of Units
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">11</div>
+                        <Form.Label>
+                          No. of Units
+                        </Form.Label>
+                      </div>
                       <Form.Control
                         size="sm"
                         type="text"
@@ -324,19 +355,25 @@ export default function CompileScheduleGeneralInfo() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">12</span>Status of Unit{" "}
-                        <span className="text-danger"> *</span>
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">12</div>
+                        <Form.Label>
+                          Status of Unit{" "}
+                          <span className="text-danger"> *</span>
+                        </Form.Label>
+                      </div>
                       <Form.Select size="sm" disabled>
                         <option>01 - OPEN</option>
                       </Form.Select>
+                      <Form.Text className="text-muted">
+                        For Next Year Frame Updation
+                      </Form.Text>
                     </Form.Group>
                   </Col>
                 </Row>
                 <Row>
                   <Form.Label>Upload/Download Supported Documents</Form.Label>
-                  <Col md={5}>
+                  <div className="d-flex justify-content-start">
                     <Form.Group controlId="">
                       <Form.Control
                         type="file"
@@ -348,38 +385,36 @@ export default function CompileScheduleGeneralInfo() {
                     <Form.Control
                       type="text"
                       id="file-name"
+                      className="me-2"
                       value={fileName}
                       onMouseDown={(e) => e.preventDefault()}
                       onSelectStart={(e) => e.preventDefault()}
                       readOnly
                     />
-                  </Col>
-                  <Col md={7}>
-                    <div className="d-flex justify-content-start">
-                      <Button
-                        variant="outine-primary"
-                        className="btn btn-outline-primary d-flex align-items-center me-2"
-                        onClick={handleButtonClick}
-                      >
-                        {" "}
-                        <span className="me-2">Browse</span>
-                        <FeatherIcon icon="file" />
-                      </Button>
-                      <Button
-                        variant="btn btn-primary"
-                        className=" d-flex align-items-center me-2"
-                      >
-                        <span className="me-2">Upload</span>
-                        <FeatherIcon icon="upload" />
-                      </Button>
-                      <Button
-                        variant="outline-danger"
-                        className="d-flex align-items-center me-2 ps-3"
-                      >
-                        <FeatherIcon icon="x-square" />
-                      </Button>
-                    </div>
-                  </Col>
+
+                    <Button
+                      variant="outine-primary"
+                      className="btn btn-outline-primary d-flex align-items-center me-2"
+                      onClick={handleButtonClick}
+                    >
+                      {" "}
+                      <span className="me-2">Browse</span>
+                      <FeatherIcon icon="file" />
+                    </Button>
+                    <Button
+                      variant="btn btn-primary"
+                      className=" d-flex align-items-center me-2"
+                    >
+                      <span className="me-2">Upload</span>
+                      <FeatherIcon icon="upload" />
+                    </Button>
+                    <Button
+                      variant="outline-danger"
+                      className="d-flex align-items-center me-2 px-2"
+                    >
+                      <FeatherIcon icon="x" />
+                    </Button>
+                  </div>
                   <Form.Text className="text-muted mt-3">
                     Allowable Extensions are .pdf,.xls,.xlsx,.doc,.docx The
                     upload File size limit upto 10 MB
@@ -388,33 +423,38 @@ export default function CompileScheduleGeneralInfo() {
               </Form>
             </Card.Body>
           </Card>
-          <Card className="remarkCard">
-            <Card.Header className="customCardheader">Remarks</Card.Header>
+          <Card className="rounded-4">
+            <Card.Header>Remarks</Card.Header>
             <Card.Body>
               <Form.Group>
                 <Form.Control
                   placeholder="Enter Remarks..."
                   as="textarea"
-                  className=" customRemarksfc text-muted"
+                  className="text-muted"
                 />
               </Form.Group>
             </Card.Body>
           </Card>
-          
+
         </Col>
         <Col md={6}>
-          <Card className="cardBlockB">
-            <Card.Header className="customCardheader">Block B</Card.Header>
+          <Card className="rounded-4">
+            <Card.Header>
+              <Card.Title>Block B</Card.Title>
+            </Card.Header>
             <Card.Body>
               <Form>
-                <Form.Label className="customBlockBtitle">
-                  <span className="customSerialNo">1</span>Details of the
-                  Industrial Unit
-                </Form.Label>
-                <Card.Title className="customBlockBsubtitle text-muted">
-                  For Next Year Frame Updation
-                </Card.Title>
-                <Card className="customInnercard shadow-none mt-1">
+                <Form.Group>
+                  <div class="d-flex align-items-start mb-2">
+                    <div class="customSerialNo">1</div>
+                    <div>
+                      <Form.Label class="colorDarkblue form-label m-0">Details of the Industrial Unit</Form.Label>
+                      <p class="text-muted m-0">For Next Year Frame Updation</p>
+                    </div>
+                  </div>
+                </Form.Group>
+
+                <Card className="bgBluecolor shadow-none mt-1">
                   <Card.Body>
                     <Row>
                       <Col md={6}>
@@ -492,10 +532,12 @@ export default function CompileScheduleGeneralInfo() {
                 <Row>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">2</span>Type of
-                        Organization <span className="text-danger"> *</span>
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">2</div>
+                        <Form.Label>
+                          Organization{" "}<span className="text-danger">*</span>
+                        </Form.Label>
+                      </div>
                       <Form.Select size="sm">
                         <option>Select Organization</option>
                       </Form.Select>
@@ -503,9 +545,12 @@ export default function CompileScheduleGeneralInfo() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">3</span>CIN
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">3</div>
+                        <Form.Label>
+                          CIN
+                        </Form.Label>
+                      </div>
                       <Form.Control
                         size="sm"
                         type="text"
@@ -515,10 +560,10 @@ export default function CompileScheduleGeneralInfo() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
+                      <Form.Label className="mb-2 d-flex align-items-start">
                         <span className="customSerialNo">4</span>Whether the
                         unit has ISO Certification, 14000 Series{" "}
-                        <span className="text-danger"> *</span>
+                        <span className="text-danger">*</span>
                       </Form.Label>
                       <Form.Select size="sm">
                         <option>Yes</option>
@@ -527,55 +572,64 @@ export default function CompileScheduleGeneralInfo() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
+                      <Form.Label className="mb-2 d-flex align-items-start">
                         <span className="customSerialNo">5</span>Year of initial
                         production - YYYY{" "}
-                        <span className="text-danger"> *</span>
+                        <span className="text-danger">*</span>
                       </Form.Label>
                       <Form.Control size="sm" type="text" placeholder="2024" />
                     </Form.Group>
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">6</span>Accounting Year
-                        (MM/YY) <span className="text-danger"> *</span>
-                      </Form.Label>
-                      <Stack direction="horizontal" gap={3}>
-                        <div>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">6</div>
+                        <Form.Label>
+                          Accounting Year (MM/YY) <span className="text-danger">*</span>
+                        </Form.Label>
+                      </div>
+                      <Row className="d-flex align-items-center">
+                        <Col md={4}>
                           <Form.Control
                             size="sm"
                             type="text"
                             placeholder="04/20"
                           />
-                        </div>
-                        <div>To</div>
-                        <div>
+                        </Col>
+                        <Col md={3}>
+                          <p className="mb-0">To</p>
+                        </Col>
+                        <Col md={4}>
                           <Form.Control
                             size="sm"
                             type="text"
                             placeholder="03/21"
                           />
-                        </div>
-                      </Stack>
+                        </Col>
+                      </Row>
                     </Form.Group>
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">7</span>No of months
-                        operation <span className="text-danger"> *</span>
-                      </Form.Label>
+                      <div className="d-flex align-items-start mb-2">
+                        <div className="customSerialNo">7</div>
+                        <Form.Label>
+                          No of months operation <span className="text-danger"> *</span>
+                        </Form.Label>
+                      </div>
                       <Form.Control size="sm" type="text" placeholder="12" />
                     </Form.Group>
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">8</span>Whether the
-                        share capital of the company includes share of foreign
-                        entities? <span className="text-danger"> *</span>
-                      </Form.Label>
+                      <div class="d-flex align-items-start">
+                        <div className="customSerialNo">8</div>
+                        <Form.Label className="mb-2 ">
+                          Whether the
+                          share capital of the company includes share of foreign
+                          entities?{" "}<span className="text-danger">*</span>
+                        </Form.Label>
+                      </div>
                       <Form.Select size="sm">
                         <option>No</option>
                       </Form.Select>
@@ -583,21 +637,25 @@ export default function CompileScheduleGeneralInfo() {
                   </Col>
                   <Col md={6}>
                     <Form.Group className="mb-4" controlId="">
-                      <Form.Label className="mb-2">
-                        <span className="customSerialNo">9</span>Any R&D unit in
-                        your factory? <span className="text-danger"> *</span>
-                      </Form.Label>
+                      <div class="d-flex align-items-start">
+                        <div className="customSerialNo">9</div>
+                        <Form.Label className="mb-2 ">
+                          Any R&D unit in your factory? <span className="text-danger">*</span>
+                        </Form.Label>
+                      </div>
                       <Form.Select size="sm">
                         <option>No</option>
                       </Form.Select>
                     </Form.Group>
                   </Col>
                 </Row>
-                <Form.Label className="customBlockBtitle">
-                  <span className="customSerialNo">10</span>Detail of Contact
-                  Person
-                </Form.Label>
-                <Card className="customInnercard shadow-none mt-2">
+                <div class="d-flex align-items-start">
+                  <div className="customSerialNo">10</div>
+                  <Form.Label className="mb-2 colorDarkblue">
+                    Detail of Contact Person
+                  </Form.Label>
+                </div>
+                <Card className="bgBluecolor shadow-none mt-2">
                   <Card.Body p-0>
                     <Row>
                       <Col md={6}>
@@ -660,11 +718,13 @@ export default function CompileScheduleGeneralInfo() {
                   </Card.Body>
                 </Card>
                 <Form.Group controlId="">
-                  <Form.Label className="mb-2">
-                    <span className="customSerialNo">11</span>Whether the unit
-                    offered any formal training{" "}
-                    <span className="text-danger"> *</span>
-                  </Form.Label>
+                  <div class="d-flex align-items-start mb-2">
+                    <div className="customSerialNo">11</div>
+                    <Form.Label>
+                      Whether the unit offered any formal training{" "}<span className="text-danger"> *</span>
+                    </Form.Label>
+                  </div>
+
                   <Form.Select size="sm">
                     <option>No</option>
                   </Form.Select>
@@ -673,32 +733,32 @@ export default function CompileScheduleGeneralInfo() {
             </Card.Body>
           </Card>
         </Col>
-      </Row>
+      </Row >
       <Row>
-      <Col>
-      <div class="mb-4">
-      {!isSaving ? (
-                  <Button
-                    variant="btn btn-primary"
-                    className=" me-2"
-                    onClick={handleSaveClick}
-                  >
-                    <span className="me-2">Save as Draft</span>
-                    <FeatherIcon icon="save" />
-                  </Button>
-                ) : (
-                  <Button variant="primary" disabled className=" me-2">
-                  <Spinner
-                    as="span"
-                    animation="border"
-                    size="sm"
-                    role="status"
-                    aria-hidden="true"
-                    className="me-2"
-                  />
-                 Savings...
-                </Button>
-                )}
+        <Col>
+          <div class="mb-4">
+            {!isSaving ? (
+              <Button
+                variant="btn btn-primary"
+                className=" me-2"
+                onClick={handleSaveClick}
+              >
+                <span className="me-2">Save as Draft</span>
+                <FeatherIcon icon="save" />
+              </Button>
+            ) : (
+              <Button variant="primary" disabled className=" me-2">
+                <Spinner
+                  as="span"
+                  animation="border"
+                  size="sm"
+                  role="status"
+                  aria-hidden="true"
+                  className="me-2"
+                />
+                Savings...
+              </Button>
+            )}
             <Button variant="outline-primary me-2">
               <span className="me-2">Preview</span>
               <FeatherIcon icon="eye" />
