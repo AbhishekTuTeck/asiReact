@@ -400,7 +400,7 @@ function LoginForm() {
         <div className="loginfooter-second">
           <div className="container">
             <p className="mb-0 py-2">
-              © 2025, National Statistical Office - Industrial Statistics Wing.
+              &copy; 2025, National Statistical Office - Industrial Statistics Wing.
               All rights reserved. Ministry of Statistics & Programme
               Implementation
             </p>
