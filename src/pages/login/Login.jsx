@@ -80,81 +80,81 @@ function LoginForm() {
       <div className="loginBody">
         <Container>
           <header className="headerContainer">
-                  <Navbar expand="lg" className="firstNav bg-transparent py-3 custom-badge d-flex align-items-center">
-                    <Button variant="bg-light" className="d-lg-none" onClick={handleCheckboxChange}>
-                      <i className="bi bi-list"></i>
-                    </Button>
-                    <Navbar.Brand className="navbrand" href="#">
-                      <img
-                        src="src/assets/logo.svg"
-                        className="img-fluid pe-4"
-                        alt=""
-                        width="230"
-                      />
-                    </Navbar.Brand>
-                    <Navbar.Brand className="navbrand2" href="#">
-                      <img
-                        src="src/assets/NSS_logo.png"
-                        className="img-fluid border-0"
-                        alt=""
-                        width="130"
-                      />
-                    </Navbar.Brand>
-                    <Badge className="badge badge-outline badge-danger px-3">ASI</Badge>
-                    <Nav className="ms-auto">
-                      <Button
-                        variant="primary"
-                        className="rounded-pill px-3 d-flex align-items-center justify-content-center">
-                        <i className="bi bi-person"></i>
-                        <span className="login-text ms-1">Login</span>
-                      </Button>
-                    </Nav>
-                  </Navbar>
-                  <div className="loginContainer py-2">
-                    {/* Hidden checkbox */}
-                    <Form.Check
-                      className="me-2 d-none"
-                      id="toggleMenu"
-                      checked={isChecked}
-                      onChange={handleCheckboxChange}
-                    />
-                    <Nav className={`d-flex justify-content-between px-2 ${isChecked ? 'show-menu' : ''}`} as="ul">
-                      <CloseButton
-                       className="btn-close closeToggle d-lg-none"
-                       onClick={() => handleCheckboxChange({ target: { checked: false } })}
-                       aria-label="Close navigation"
-                       />
-                      <Nav.Item as="li">
-                        <Nav.Link href="#"><i className="bi bi-house-door me-2"></i>Home</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link href="#"><i className="bi bi-arrow-counterclockwise me-2"></i>History</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link href="#"><i className="bi bi-grid me-2"></i>Present Structure</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link href="#"><i className="bi bi-gear me-2"></i>Functions</Nav.Link>
-                      </Nav.Item>
-                      <NavDropdown title={<><i className="bi bi-info-circle me-2"></i>About</>} id="nav-dropdown" as="li">
-                        <NavDropdown.Item href="#" as="a">About ASI</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#" as="a">About ASB</NavDropdown.Item>
-                      </NavDropdown>
-                      <Nav.Item as="li">
-                        <Nav.Link href="#"><i className="bi bi-card-text me-2"></i>ASI Manual</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link href="#"><i className="bi bi-circle me-2"></i>NIC</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link href="#"><i className="bi bi-circle me-2"></i>NPCMS</Nav.Link>
-                      </Nav.Item>
-                      <Nav.Item as="li">
-                        <Nav.Link href="#"><i className="bi bi-bank me-2"></i>State IIP</Nav.Link>
-                      </Nav.Item>
-                    </Nav>
-                  </div>
+            <Navbar expand="lg" className="firstNav bg-transparent py-3 custom-badge d-flex align-items-center">
+              <Button variant="bg-light" className="d-lg-none" onClick={handleCheckboxChange}>
+                <i className="bi bi-list"></i>
+              </Button>
+              <Navbar.Brand className="navbrand" href="#">
+                <img
+                  src="src/assets/logo.svg"
+                  className="img-fluid pe-4"
+                  alt=""
+                  width="230"
+                />
+              </Navbar.Brand>
+              <Navbar.Brand className="navbrand2" href="#">
+                <img
+                  src="src/assets/NSS_logo.png"
+                  className="img-fluid border-0"
+                  alt=""
+                  width="130"
+                />
+              </Navbar.Brand>
+              <Badge className="badge badge-outline badge-danger px-3">ASI</Badge>
+              <Nav className="ms-auto">
+                <Button
+                  variant="primary"
+                  className="rounded-pill px-3 d-flex align-items-center justify-content-center">
+                  <i className="bi bi-person"></i>
+                  <span className="login-text ms-1">Login</span>
+                </Button>
+              </Nav>
+            </Navbar>
+            <div className="loginContainer py-2">
+              {/* Hidden checkbox */}
+              <Form.Check
+                className="me-2 d-none"
+                id="toggleMenu"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+              />
+              <Nav className={`d-flex justify-content-between px-2 ${isChecked ? 'show-menu' : ''}`} as="ul">
+                <CloseButton
+                  className="btn-close closeToggle d-lg-none"
+                  onClick={() => handleCheckboxChange({ target: { checked: false } })}
+                  aria-label="Close navigation"
+                  />
+                <Nav.Item as="li">
+                  <Nav.Link href="#"><i className="bi bi-house-door me-2"></i>Home</Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li">
+                  <Nav.Link href="#"><i className="bi bi-arrow-counterclockwise me-2"></i>History</Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li">
+                  <Nav.Link href="#"><i className="bi bi-grid me-2"></i>Present Structure</Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li">
+                  <Nav.Link href="#"><i className="bi bi-gear me-2"></i>Functions</Nav.Link>
+                </Nav.Item>
+                <NavDropdown title={<><i className="bi bi-info-circle me-2"></i>About</>} id="nav-dropdown" as="li">
+                  <NavDropdown.Item href="#" as="a">About ASI</NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#" as="a">About ASB</NavDropdown.Item>
+                </NavDropdown>
+                <Nav.Item as="li">
+                  <Nav.Link href="#"><i className="bi bi-card-text me-2"></i>ASI Manual</Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li">
+                  <Nav.Link href="#"><i className="bi bi-circle me-2"></i>NIC</Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li">
+                  <Nav.Link href="#"><i className="bi bi-circle me-2"></i>NPCMS</Nav.Link>
+                </Nav.Item>
+                <Nav.Item as="li">
+                  <Nav.Link href="#"><i className="bi bi-bank me-2"></i>State IIP</Nav.Link>
+                </Nav.Item>
+              </Nav>
+            </div>
           </header>
           <section>
             <Row className="mb-3 mt-3 align-items-start">
