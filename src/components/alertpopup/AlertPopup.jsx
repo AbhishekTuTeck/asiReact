@@ -35,43 +35,44 @@ function AlertPopup({ title, desription, confirmbtnText, closeBtnText, show, han
         )}
         <h4>{title}</h4>
         <p className="m-0">{desription}</p>
+        {isDanger ? (
+        
+        <div className="d-grid gap-2 mt-5 mb-3">
+          <Button 
+            variant="danger" 
+            onClick={handleClose}
+          >
+            {confirmbtnText}
+          </Button>
+          <Button 
+            variant="link" 
+            onClick={handleClose}
+          >
+            {closeBtnText}
+          </Button>
+        </div>
+      
+    ) : (
+      
+        <div className="d-grid gap-2 mt-5 mb-3">
+          <Button 
+            variant="success" 
+            onClick={handleClose} 
+          >
+            {confirmbtnText} <i class="bi bi-arrow-right ms-1"></i>
+          </Button> 
+          <Button 
+            variant="link" 
+            onClick={handleClose}
+          >
+            {closeBtnText}
+          </Button>
+        </div>
+      
+    )}
         </>
       </Modal.Body>
-      {isDanger ? (
-        <Modal.Footer>
-          <div className="d-grid gap-2">
-            <Button 
-              variant="danger" 
-              onClick={handleClose}
-            >
-              {confirmbtnText}
-            </Button>
-            <Button 
-              variant="link" 
-              onClick={handleClose}
-            >
-              {closeBtnText}
-            </Button>
-          </div>
-        </Modal.Footer>
-      ) : (
-        <Modal.Footer>
-          <div className="d-grid gap-2">
-            <Button 
-              variant="success" 
-              onClick={handleClose} 
-            >
-              {confirmbtnText} <i class="bi bi-arrow-right ms-1"></i>
-            </Button> 
-            <Button 
-              variant="link" 
-              onClick={handleClose}
-            >
-              {closeBtnText}
-            </Button>
-          </div>
-        </Modal.Footer>
-      )}
+      
     </Modal>
   );
 }
