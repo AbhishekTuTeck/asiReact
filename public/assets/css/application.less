@@ -704,7 +704,7 @@ ul.top-menu {
     }
   }
 }
-/*Anjali login Page Style Start*/
+/*login Page Style Start*/
 .loginbackground{
   backdrop-filter: blur(10px);
   background-image:url('../images/loginpagebg.png');
@@ -731,14 +731,9 @@ ul.top-menu {
   }
   .login-text {
       display: inline-block;
-
       @media screen and (max-width: 774px) {
           display: none;
-          width: 1.5em;
-      }
-
-      @media screen and (min-width: 994px) {
-          display: inline-block;
+          width: 1.5em; 
       }
   }
 
@@ -750,97 +745,94 @@ ul.top-menu {
       }
   }
 }
-.custom-loginnavbar{
+.loginContainer {
   background-color: rgba(220, 235, 255, 0.12);
-  z-index: 1;
   border-radius: 10em;
-  box-shadow: 1px 1px 1px 0.2px #fff;
-  border: 1px solid #EDEDED;
+  box-shadow: 1px 1px 1px 0.2px @color_2;
+  border: 1px solid @color_7;
   backdrop-filter: blur(10px);
-    @media screen and (max-width:992px) {
-      border-radius: 0;
-      margin: 1em 0em;
-      background:transparent!important;
-      box-shadow: none;
+  z-index: 1!important;
+  @media screen and (max-width: 991px) {
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+  ul {
+    @media screen and (max-width: 991px) {
+      background-color:rgba(220, 235, 255, 0.12);
+      box-shadow: 1px 1px 1px 0.2px @color_2;
+      border: 1px solid @color_7;
+      backdrop-filter: blur(10px);
+      position: fixed;
+      top: -71.3px;
+      left: -100%;
+      height: 100vh;
+      width: 50%;
+      display: block !important;
+      padding-top: 70px;
+      z-index:1!important;
+      transition: left 0.3s ease;
     }
-
-  ul{
-    li{
-      a{
-        color: #4F4F4F !important;
-        &:hover {
-          color: #fff!important;
-          background: linear-gradient(to right, #6CA7F9, #133D77);
-         
-        }
-        &:active{
-          background: linear-gradient(to right, #6CA7F9, #133D77);
-          border-radius: 1.5em;
-          color: white;
+    li {
+      @media screen and (max-width: 991px) {
+        margin: 20px 0;
       }
-          border-radius: 2.5em;
-          padding: 7px 14px;
+      a {
+        color: @color4 !important;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px;
 
-          font-size: 14px;
-          background-color: transparent;
-          border-radius: 1.5em;
-       
-            @media screen and (max-width: 994px) {
-              border-radius: 1em;
-              padding: 0em 0.2em;
-              margin: 0.5em 0em;
-            }
-          }
-          @media screen and (max-width: 994px) {
-            margin: 0.8em 0em;
-        }
-
-        @media screen and (max-width: 1200px) {
-            font-size: .775em;
-        }
         @media screen and (max-width: 991px) {
-            font-size: 1em;
+          font-size: 14px;
         }
 
-        i {
-          @media screen and (min-width: 1200px) {
-              font-size: 1.2em;
+        &:hover,
+        &:active {
+          background: linear-gradient(to right, #6CA7F9, #133D77);
+          border-radius: 23px;
+          color: @color_2 !important;
+
+          @media screen and (max-width: 991px) {
+            background: linear-gradient(to right, #6CA7F9, #133D77);
+            border-radius: 23px;
+            color: @color_2 !important;
           }
         }
+        i {
+          @media screen and (min-width: 1153px) {
+            font-size: 1.2em;
+          }
+        }
+      }
+    }
+    &.show-menu {
+      left:0%;
     }
   }
+  .closeToggle{
+    position:absolute;
+    top:0;
+    right:0px!important;
+    margin:20px;
+  }
 }
-.dropdown-menu{
-  top: 100%!important;
-  margin-top: 0.7em !important;
-}
-.navbar .navbar-nav .nav-item .nav-link {
-  font-size: 14px!important;
-  font-weight: 500;
-  background-color: transparent;
-  color: #4F4F4F !important;
-  margin:0!important;
-  padding:0!important;
-}
-.navbar .navbar-nav .nav-item:hover .nav-link{
-  color: #fff!important;
-}
+
 .leftcard {
   border: none!important;
   background: none!important;
-
   &-header {
       color: #1B4582!important;
   }
 
   &-body {
-
       .custom-carousel {
         .carousel-inner {
           position: relative;
           width: 100%;
           border-radius: 1.5em;
           overflow: hidden;
+          
         }
         @media screen and (max-width: 767px) {
           display: none;
@@ -883,13 +875,10 @@ ul.top-menu {
     border-radius: 10%!important;
     backdrop-filter: blur(10px)!important;
     background-color: rgba(255, 255, 255, 0.5)!important;
-
+    z-index: -1000!important;
   @media screen and (min-width: 712px) {
     border-radius: 2.5em!important;
   }
-
-
-
     h4 {
       font-size: 29px;
       font-weight: 400;
