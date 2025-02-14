@@ -1033,48 +1033,6 @@ ul.top-menu {
     .modal-header{
       border-bottom: none;
     }
-    .modal-body{
-      .outerCircle{
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        margin: 0 auto 15px auto;
-        .innerCircle{
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      }
-      .outerSuccess{
-        background-color: @successColor4; /* Light green outer circle */
-        .innerSuccess{
-            background-color: @successColor3; /* Green inner circle */
-            i{
-              font-size: 36px;
-              line-height: 40px;
-              color: @baseColor;
-            }
-        }
-      }
-      .outerDanger{
-        background-color: @lightDanger; /* Light green outer circle */
-        .innerDanger{
-            background-color: @warningColor2; /* Green inner circle */
-            i{
-              font-size: 26px;
-              line-height: 30px;
-              color: @baseColor;
-            }
-        }
-      }
-    }
     .modal-footer{
       border-top: none;
       justify-content: center;
@@ -1167,6 +1125,46 @@ ul.top-menu {
 }
 .td-none{
   text-decoration: none !important;
+}
+.outerCircle{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 auto 15px auto;
+  .innerCircle{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.outerSuccess{
+  background-color: @successColor4; /* Light green outer circle */
+  .innerSuccess{
+      background-color: @successColor3; /* Green inner circle */
+      i{
+        font-size: 36px;
+        line-height: 40px;
+        color: @baseColor;
+      }
+  }
+}
+.outerDanger{
+  background-color: @lightDanger; /* Light green outer circle */
+  .innerDanger{
+      background-color: @warningColor2; /* Green inner circle */
+      i{
+        font-size: 26px;
+        line-height: 30px;
+        color: @baseColor;
+      }
+  }
 }
 
  

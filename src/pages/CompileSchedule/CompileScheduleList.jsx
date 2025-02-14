@@ -171,16 +171,7 @@ export default function CompileScheduleList() {
       </Card>
 
       {/* Alert Modal for Delete Confirmation */}
-      {/* <AlertPopup
-        title="Delete Modal"
-        description="Are you sure you want to delete this item?"
-        confirmbtnText="Yes Delete"
-        closeBtnText="No! Cancel For Now"
-        show={show}
-        handleClose={handleClose}
-        variant="danger"
-        onConfirm={handleConfirmDelete} // Pass the delete action to the modal
-      /> */}
+      
       <AlertPopup
         title="Delete this Record from Draft?"
         desription="Are You Sure Delete this Record from Draft? one Delete no way to Recover this data."
