@@ -187,21 +187,21 @@ function LoginForm() {
                     <Carousel id="login-carousel" className="custom-carousel" fade>
                       <Carousel.Item className="custom-carousel-inneritem active">
                         <img
-                          src="src\assets\hero_image_2.jpg"
+                          src="src/assets/hero_image_2.jpg"
                           className="d-block w-100"
                           alt=""
                         />
                       </Carousel.Item>
                       <Carousel.Item className="custom-carousel-inneritem">
                         <img
-                          src="src\assets\hero_image_1.jpg"
+                          src="src/assets/hero_image_1.jpg"
                           className="d-block w-100"
                           alt=""
                         />
                       </Carousel.Item>
                       <Carousel.Item className="custom-carousel-inneritem">
                         <img
-                          src="src\assets\hero_image_3.jpg"
+                          src="src/assets/hero_image_3.jpg"
                           className="d-block w-100"
                           alt=""
                         />
