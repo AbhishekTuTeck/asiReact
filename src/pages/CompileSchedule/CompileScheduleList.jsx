@@ -182,13 +182,13 @@ export default function CompileScheduleList() {
         onConfirm={handleConfirmDelete} // Pass the delete action to the modal
       /> */}
       <AlertPopup
-        title="Validation Successfully Done"
-        desription="Validation Done – You Can Proceed to the Next Block"
-        confirmbtnText="Go To Next Block"
-        closeBtnText="Close"
+        title="Delete this Record from Draft?"
+        desription="Are You Sure Delete this Record from Draft? one Delete no way to Recover this data."
+        confirmbtnText="Yes Delete"
+        closeBtnText="No , Cancel now"
         show={show}
         handleClose={handleClose}
-        variant="success"
+        variant="danger"
         onConfirm={handleConfirmDelete} // Pass the delete action to the modal
       />
     </>
