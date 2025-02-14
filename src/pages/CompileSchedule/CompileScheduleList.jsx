@@ -171,24 +171,15 @@ export default function CompileScheduleList() {
       </Card>
 
       {/* Alert Modal for Delete Confirmation */}
-      {/* <AlertPopup
-        title="Delete Modal"
-        description="Are you sure you want to delete this item?"
+      
+      <AlertPopup
+        title="Delete this Record from Draft?"
+        desription="Are You Sure Delete this Record from Draft? one Delete no way to Recover this data."
         confirmbtnText="Yes Delete"
-        closeBtnText="No! Cancel For Now"
+        closeBtnText="No , Cancel now"
         show={show}
         handleClose={handleClose}
         variant="danger"
-        onConfirm={handleConfirmDelete} // Pass the delete action to the modal
-      /> */}
-      <AlertPopup
-        title="Validation Successfully Done"
-        desription="Validation Done – You Can Proceed to the Next Block"
-        confirmbtnText="Go To Next Block"
-        closeBtnText="Close"
-        show={show}
-        handleClose={handleClose}
-        variant="success"
         onConfirm={handleConfirmDelete} // Pass the delete action to the modal
       />
     </>
