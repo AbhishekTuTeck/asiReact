@@ -810,10 +810,10 @@ ul.top-menu {
     }
   }
 }
-.dropdown-menu{
-  top: 100%!important;
-  margin-top: 0.7em !important;
-}
+// .dropdown-menu{
+//   top: 100%!important;
+//   margin-top: 0.7em !important;
+// }
 .navbar .navbar-nav .nav-item .nav-link {
   font-size: 14px!important;
   font-weight: 500;
@@ -1004,35 +1004,32 @@ ul.top-menu {
   }
 }
 .controlBtn{
-  .btn{
-    padding-left: 20px;
-  }
-
-.custom-outline-primary{
-  background-color:@color_2!important;
-    &:hover{
-      background-color: darken(@color_2,5%)!important;
-      color: @SiteBlue5!important;
+  .custom-outline-primary{
+    background-color:@color_2!important;
+      &:hover{
+        background-color: darken(@color_2,5%)!important;
+        color: @SiteBlue5!important;
+      }
     }
-  }
 }
-.customSerialNo{
+.labelSerialNo{
   color: @SiteBlue5;
   background-color: #C4D9FF;
   border-radius: 2px;
-  padding: 4px 8px;
   margin-right: 5px;
   font-size: 12px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
 }
 .form-label{
   color:@color4!important;
 }
-
-.colorDarkblue{
-  color: @SiteBlue6!important;
-}
-.bgBluecolor{
-  background-color: @background-color_5!important;
+.bgLightBlue{
+  background-color: @background_color_5 !important;
 }
 
 // Custom Popup Modal
@@ -1133,30 +1130,31 @@ ul.top-menu {
     }
   }
 }
-.customCardBlocks{
-  &-header{
-    font-size:16px;
-    font-weight:500;
-  }
-}
+
 .custom-alert{
-  &-danger{
+  &.alert-danger{
     background-color:@background_warning_color!important;
     border-color: @warningColor2!important;
     color: @warningColor2!important;
-    .feather-alert-triangle{
-      width:37.58px;
-      height:30.88px;
-    }
-    .custom-alert-title{
-      font-size: 16px;
-      font-weight:700;
-    }
-    .custom-alert-text{
-      font-size:14px;
-      padding-left: 53.7px;
-    }
   }
+}
+.textPrimary{
+  color: @SiteBlue6 !important;
+}
+.textMutedLight{
+  color: @color_6;
+}
+.fw-500{
+  font-weight: 500;
+}
+.fw-600{
+  font-weight: 600;
+}
+.fw-700{
+  font-weight: 700;
+}
+.fw-400{
+  font-weight: 500;
 }
 
  
